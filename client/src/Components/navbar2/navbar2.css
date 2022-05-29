@@ -6,11 +6,10 @@
     align-items: center;
 }
 .ulContainer{
-    height: 40px;
+    min-width: 400px;
     width: 40%;
     display: flex;
     align-items: center;
-    justify-content: space-evenly;
     list-style-type: none;
     margin-left: 10px;
 
@@ -24,4 +23,13 @@
 .ulContainer li:hover{
     cursor: pointer;
     border: 1px white solid;
+}
+.menuicon2{
+   color: white;
+   font-size: larger;
+}
+@media screen and (max-width: 320px){
+    .ulContainer li:nth-child(3){
+        display: none;
+    }
 }
