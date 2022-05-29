@@ -1,0 +1,27 @@
+.navbar2{
+    height: 40px;
+    width: 100%;
+    background-color: #082931;
+    display: flex;
+    align-items: center;
+}
+.ulContainer{
+    height: 40px;
+    width: 40%;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    list-style-type: none;
+    margin-left: 10px;
+
+}
+.ulContainer li{
+    font-size: calc(12px + (13 - 10) * (100vw - 768px) / (1440 - 768));
+    color: white;
+    padding: 5px;
+    border: 1px #082931 solid;
+}
+.ulContainer li:hover{
+    cursor: pointer;
+    border: 1px white solid;
+}

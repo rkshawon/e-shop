@@ -1,0 +1,10 @@
+.home{
+    background-color: rgb(236, 236, 236);
+}
+.itemList{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    justify-content:center;
+    align-items: center;
+}

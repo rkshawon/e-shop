@@ -1,0 +1,147 @@
+.cart_container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #eaeded;
+}
+.card_page_container{
+    margin: 2%;
+    height: 95%;
+    width: 95%;
+    display: flex;
+    justify-content: space-between;
+    
+}
+.card_page_left{
+    display: flex;
+    flex-direction: column;
+    width: 75%;
+    background-color: rgb(255, 255, 255);
+}
+.card_page_left h2{
+    margin-left: 2%;
+    margin-bottom: 2%;
+    padding: 15px;
+    padding-left: 0;
+    border-bottom: 1px solid rgb(223, 223, 223);
+}
+.order_list_container{
+    height: 170px;
+    width: 95%;
+    display: flex;
+    margin: 2%;
+    margin-top: 0;
+    padding-bottom: 10px;
+    border-bottom: 1px solid rgb(223, 223, 223);
+}
+.card_image{
+    height: 170px;
+    width: 200px;
+    margin-right: 30px;
+}
+.card_image img{
+    height: 170px;
+    width: 200px; 
+}
+.card_description{
+    position: relative;
+   
+    width: 100%;
+    height: 170px;
+}
+.product_name{
+ 
+}
+.product_price{
+    height: 20px;
+    margin-top: 1%;
+
+}
+.product_rating{
+    height: 30px;
+    margin-top: 1%;
+
+}
+.remove_from_card_btn{
+    position: absolute;
+    bottom: 0;
+    height: 30px;
+    padding: 5px 10px;
+    margin-top: 17px;
+    background-color: rgb(255, 210, 8);
+    box-shadow: 0px 2px 5px 0px rgba(156,156,156,0.75);
+    border: none;
+}
+.remove_from_card_btn:hover{
+    cursor: pointer;
+}
+.card_page_right{
+    height: 110px;
+    width: 250px;
+    margin-left: 10px;
+    background-color: rgb(255, 255, 255);
+    position: relative;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.total_amount{
+    position: absolute;
+    width: 87%;
+    display: flex;
+}
+.check_box{
+    position: absolute;
+    width: 87%;
+    display: flex;
+    align-items: center;
+    margin-top: 25px;
+}
+.check_box input{
+    margin-right: 5px;
+}
+.checkout_button{
+    bottom: 0;
+    position: absolute;
+    width: 90%;
+    height: 20%;
+    background-color: rgb(255, 210, 8);
+    box-shadow: 0px 2px 5px 0px rgba(156,156,156,0.75);
+    border: none;
+    border-radius: 10px;
+    margin-bottom: 30px;
+}
+.checkout_button:hover{
+    cursor: pointer;
+}
+.empty_card{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: calc(100vh - 150px);
+}
+.empty_card span{
+    font-size: 3rem;
+}
+.quantity_container{
+    width: 96px;
+    height: 15%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.quantity{
+    width: 40px;
+    padding: 1px;
+    text-align: center;
+}
+.quantity:hover{
+    border: 1px solid rgb(179, 179, 179);
+}
+.increase, .decrease{
+    width: 28px;
+    padding: 3px;
+}

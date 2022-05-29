@@ -1,0 +1,92 @@
+.sing_up_container{
+    height: 100vh;
+    width: 100vw;
+    background-color: rgb(255, 255, 255);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.amazon_logo img{
+    height: 50px;
+    width: 150px;
+    object-fit: fill;
+}
+.registration_login_container{
+    background-color: rgb(255, 255, 255);
+    height: 85%;
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 0px 0px 1px 0px rgba(0,0,0,0.75);
+}
+.sing_up{
+    height: 90%;
+    width: 90%;
+    margin: 5%;
+    display: flex;
+    flex-direction: column;
+}
+
+.singup_name, .singup_email, .singup_password, .singup_confirm_password{
+    width: 100%;
+    height: 15%;
+    margin-top: 3%;
+    display: flex;
+    flex-direction: column;
+}
+.singup_name label, .singup_email label, .singup_password label, .singup_confirm_password label{
+    font-weight: bold;
+}
+.name_field, .email_field, .password_field, .confirm_password_field{
+    height: 40%;
+    width: 100%;
+    margin-top: 1%;
+    outline-color: orange;
+}
+.sing_up_btn{
+    height: 6%;
+    width: 100%;
+    margin-top: 5%;
+}
+.sing_up_btn button:hover{
+    cursor: pointer;
+}
+.sing_up_btn button{
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(0deg, rgba(254,208,108,1) 31%, rgba(245,219,165,1) 100%);
+    border: .5px solid gray;
+    border-radius: 2px;
+}
+.sing_up input+span{
+    color: red;
+}
+.registration_login_container input:focus{
+    box-shadow: 0 0 5px orange;
+}
+.sing_up p{
+    height: 5%;
+    width: 100%;
+    text-align: center;
+    margin-top: 5%;
+}
+.sing_up_btn+span{
+    margin-top: 4%;
+}
+.sing_up a{
+    color: blue;
+    text-decoration: none;
+}
+.isAdmin{
+    font-weight: bold;
+}
+#checkBox{
+    margin-top: 5%;
+    margin-right: 2%;
+}
+.registration_login_container small{
+    color: #c40000;
+    font-size: 12px;
+}

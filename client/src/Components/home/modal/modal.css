@@ -1,0 +1,54 @@
+.modal_container{
+    height: 100vh;
+    width: 100%;
+    background-color: gray;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 999;
+    padding: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.modal{
+    position: relative;
+    height: 30vh;
+    width: 60%;
+    background-color: white;
+}
+.close_btn{
+    position: absolute;
+    right: 0;
+    margin: 10px;
+}
+.submit_rating{
+    margin-top: 5%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+.rating_title{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+.rating_title h5{
+    font-size: .7rem;
+}
+.stars input{
+    display: none;
+}
+.star:hover{
+    cursor: pointer;
+}
+.submit_rating_btn{
+    margin-top: 20px;
+}
+.submit_rating_btn:hover{
+    cursor: pointer;
+}

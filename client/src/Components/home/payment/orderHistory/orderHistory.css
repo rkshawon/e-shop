@@ -1,0 +1,44 @@
+.order_history_container{
+    height: calc(100vh - 100px);
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.order_history_container h1{
+    margin: 10px;
+}
+.order_history{
+    position: relative;
+    width: 100%;
+}
+.order_table{
+    position: absolute;
+    top: 10%;
+    left: 50%;
+    transform: translate(-50%);
+    width: 80%;
+    border-collapse: collapse;
+}
+.order_header{
+    background-color: black;
+    color: white;
+}
+tr{
+    text-align: center;
+}
+.order_header th{
+    padding: 10px ;
+}
+.order_body td{
+    padding: 10px ;
+}
+th:first-child, td:first-child{
+    text-align: left;
+}
+td:nth-child(3){
+    color: red;
+}
+td:nth-child(4){
+    color: yellowgreen;
+}

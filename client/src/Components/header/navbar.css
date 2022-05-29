@@ -1,0 +1,188 @@
+.headerContainer{
+    height: 60px;
+    width: 100%;
+    background-color: #0F1111;
+    display: flex;
+    justify-content: space-between;
+}
+.leftheader{
+    width: 45%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-left: .5rem;
+}
+.leftheader img{
+    height: 2rem;
+    width: 6rem;
+    padding: .3rem 0rem;
+    border: 1px solid;
+}
+.leftheader img:hover{
+    cursor: pointer;
+    border: 1px white solid;
+}
+.search{
+    height: 90%;
+    width: 80%;
+    display: flex;
+    align-items: center;
+    margin-left: .5rem;
+}
+.search input{
+    height: 65%;
+    width: 100%;
+    outline: none;
+    padding-left: 5px;
+}
+.searchicon{
+    padding: 9px;
+    height: 20px;
+    width: 16px;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    background-color: rgb(250, 191, 65);
+}
+.rigthheader{
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    margin-right: 2%;
+    font-size: .9rem;
+}
+.navbars{
+    height: 25px;
+    display: flex;
+    align-items: center;
+    padding: .55rem .2rem;
+    border: 1px solid ;
+    word-break: break-all;
+   
+}
+.navbars:hover{
+    cursor: pointer;
+    border: 1px white solid;
+}
+.navbar_icon{
+    height: 1.5rem;
+    width: 1.5rem;
+    color: white;
+    margin-right: .33rem;
+}
+.navbar_text{
+    font-size: .9rem;
+    font-weight: bolder;
+    color: white;
+}
+.navbar_text .singout{
+    font-weight: bolder;
+}
+.shoopingCard{
+    height: 25px;
+    display: flex;
+    align-items: center;
+    padding: .55rem .6rem;
+    border: 1px solid;
+}
+.shoopingCard:hover{
+    cursor: pointer;
+    border: 1px white solid;
+}
+.cardicon{
+    height: 1.87rem;
+    width: 1.87rem;
+    color: white;
+    margin-right: .33rem;
+}
+.card_container span{
+    position: absolute;
+    margin-bottom: 1.2rem;
+    margin-left: 1rem;
+    background-color: black;
+    border-radius: 50%;
+    z-index: 1;
+    color: rgb(255, 151, 23);
+    font-weight: bold;
+    font-size: 1rem;
+}
+.card_container{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.card{
+    font-weight: bold;
+    color: white;
+}
+.logo_container{
+    display: flex;
+    align-items: center;
+}
+
+@media screen and  (max-width: 53.1rem){
+    .rigthheader{
+        display: none;
+    }
+    .leftheader{
+        width: 80%;
+    }
+    .middleheader{
+        margin: 5px;
+        display: flex;
+        align-items: center;
+        margin-left: 5px;
+    }
+    .menu{
+        margin-right: 10px;
+    }
+    .menu:hover{
+        cursor: pointer;
+    }
+    .menuicon{
+       color: white;
+       font-weight: bolder;
+    }
+}
+
+@media screen and  (min-width: 53.1rem){
+    .middleheader{
+        display: none;
+    }
+}
+@media screen and  (max-width: 30rem){
+    .headerContainer{
+        height: 80px
+    }
+    .leftheader{
+        width: 70%;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .leftheader img{
+        height: 1.8rem;
+        width: 5rem;
+        margin-top: 5px;
+    }
+    .search{
+        width: 100%;
+        margin-bottom: .1rem;
+        margin-left: 0;
+    }
+    .searchicon{
+        padding: 4.3px;
+        height: 20px;
+        width: 21px;
+    }
+    .search input{
+        height: 60%;
+        width: 100%;
+        outline: none;
+        padding-left: 5px;
+    }
+    .logo_container{
+        display: flex;
+        align-items: center;
+    }
+}

@@ -1,0 +1,107 @@
+.log_in_container{
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.amazon_logo img{
+    height: 50px;
+    width: 150px;
+    object-fit: fill;
+    margin-bottom: 5%;
+}
+.login_container{
+    background-color: rgb(255, 255, 255);
+    height: 420px;
+    width: 350px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 0px 0px 1px 0px rgba(0,0,0,0.75);
+}
+.sing_in{
+    height: 80%;
+    width: 90%;
+    margin: 5%;
+    display: flex;
+    flex-direction: column;
+}
+.sing_in label{
+    margin-top: 4%;
+    font-weight: bold;
+}
+.sing_in_field{
+    height: 10%;
+    width: 100%;
+    margin-top: 1%;
+    outline-color: orange;
+}
+.sing_in input:focus{
+    box-shadow: 0 0 5px orange;
+}
+.sing_in_btn{
+    height: 12%;
+    width: 100%;
+    margin-top: 5%;
+}
+.sing_in_btn button{
+    height: 100%;
+    width: 100%;
+    background: linear-gradient(0deg, rgba(254,208,108,1) 31%, rgba(245,219,165,1) 100%);
+    border: .5px solid gray;
+    border-radius: 2px;
+}
+.sing_in_btn button:hover{
+    cursor: pointer;
+}
+.sing_in_btn a{
+    text-decoration: none;
+    color: black;
+}
+.create_new_id{
+    margin-top: 5%;
+    height: 150px;
+    width: 375px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.create_new_id:before, .create_new_id::after{
+    border-bottom: 2px solid gray;
+}
+.sing_in span{
+    font-size: .8em;
+    margin-top: 5%;
+}
+.sing_in h5{
+    margin-top: 3%;
+}
+.sing_in a{
+    color: blue;
+    text-decoration: none;
+}
+.create_new_id h5{
+    font-weight: 500;
+    color: rgb(185, 185, 185);
+    margin-bottom: 2%;
+}
+.new_account{
+    width: 90%;
+    height: 20%;
+}
+.new_account button{
+    height: 100%;
+    width: 100%;
+    background: linear-gradient(0deg, rgba(247,247,247,1) 71%, rgba(252,252,252,1) 100%);
+    border: .5px solid gray;
+    border-radius: 3px;
+}
+.new_account button:hover{
+    cursor: pointer;
+}
+.login_container small{
+    font-size: 12px;
+    color: #c40000;
+}
