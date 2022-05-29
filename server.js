@@ -24,6 +24,6 @@ app.use('/auth', authRouter)
 app.use('/product', productRouter)
 app.use('/order', orderRouter)
 
-app.listen(8000, ()=>{
+app.listen(process.env.PORT || 8000, ()=>{
     console.log("server is runnig at port 8000");
 })
