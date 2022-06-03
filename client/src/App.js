@@ -15,14 +15,25 @@ import Navbar2 from './Components/navbar2/Navbar2';
 import Admin from "./pages/admin/Admin";
 import Login from './pages/login/Login';
 import Register from "./pages/register/Register";
+import { Elements} from "@stripe/react-stripe-js";
+import {loadStripe} from '@stripe/stripe-js'
+const stripePromise = loadStripe("pk_test_51KyZM6IP0ODYVACVqmX4DX6hxiHc10xeSIZmu92WFOLgKe4cF526wX66uWgSQk3d6s2sNrsDxqilHQmKYnD19JGi00BzXEw8kg")
 
 function App() {
+
   return (
     <BrowserRouter>
     <Routes>
       <Route path="/" element={[<Navbar/>,<Navbar2/>,<Home />, <Footer/>]} />
       <Route path="/search" element={[<Navbar/>,<Navbar2/>,<Search/>, <Footer/>]} />
-      <Route path="/payment" element={[<Navbar/>,<Navbar2/>,<Payment/>, <Footer/>]} />
+      <Route path="/payment"
+        element={[
+          <Navbar/>,<Navbar2/>,
+            <Elements stripe={stripePromise}>
+              <Payment/>
+            </Elements>,
+          <Footer/>
+        ]} />
       <Route path="/register" element={<Register/>} />
       <Route path="/login" element={<Login/>} />
       <Route path="/admin" element={<Admin/>} />

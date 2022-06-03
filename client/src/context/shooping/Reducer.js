@@ -18,6 +18,12 @@ const Reducer = (state, action)=>{
               isFetching: false,
               error: true,
             };
+        case "UPDATE_TOKEN":
+            return{
+              user: {...state.user, accessToken: action.payload.accessToken, refreshToken: action.payload.refreshToken},
+              isFetching: false,
+              error: true, 
+            }
         case "LOGOUT":
               return {
                 user: null,

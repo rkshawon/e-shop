@@ -62,3 +62,9 @@
     padding: 2px 5px;
     position: absolute;
 }
+@media (min-width: 1010px)  and  (max-width: 1200px) {
+    .item2{
+        height: 250px;
+        width: 470px;
+    }
+}

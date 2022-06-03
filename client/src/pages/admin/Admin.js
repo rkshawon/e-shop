@@ -9,14 +9,16 @@ import {v4} from 'uuid'
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { Context } from '../../context/shooping/Context';
+import jwt_decode from "jwt-decode";
 
 function Admin() {
-	const {user} = useContext(Context)
+	const {user, dispatch} = useContext(Context)
 	const [selectedFile, setSelectedFile] = useState()
     const [preview, setPreview] = useState()
 	const [productName, setProductName] = useState()
 	const [productPrice, setProductPrice] = useState()
 	const [category, setCategory] = useState()
+
 	const options = {
 		position: "top-center",
 	};
@@ -24,6 +26,36 @@ function Admin() {
 	const notify = () => toast.info("Uploading...", options);
 	const notifySuccess = () => toast.success("Upload Successfull !", options);
 	const notifyerror = () => toast.error("Something went wrong ?", options);
+
+	const axiosJWT = axios.create()
+
+	const refreshToken = async () => {
+		try {
+		  const res = await axios.post("http://localhost:8000/auth/refreshtoken", { refreshToken: user.refreshToken });
+		  dispatch({ type: "UPDATE_TOKEN", payload: {
+			accessToken: res.data.accessToken,
+			refreshToken: res.data.refreshToken
+		}});
+		return res.data;
+		} catch (err) {
+		  console.log(err);
+		}
+	  };
+
+	  axiosJWT.interceptors.request.use( async (config) => {
+		  let currentDate = new Date();
+		  const decodedToken = jwt_decode(user.accessToken);
+		  if (decodedToken.exp * 1000 < currentDate.getTime()) {
+			const data = await refreshToken();
+			config.headers["authToken"] = "Bearer " + data.accessToken;
+		  }
+		  return config;
+		},
+		(error) => {
+		  return Promise.reject(error);
+		}
+	  );
+
 
 
 	useEffect(() => {
@@ -57,12 +89,12 @@ function Admin() {
 					category: category,
 					images: url
 				}
-				axios.post('http://localhost:8000/product/singleproduct/'+user._id, productData,
-				// {
-				// 	headers: {
-				// 	  'authToken': `Bearer ${user.accessToken}`
-				// 	}
-				// }
+				axiosJWT.post('http://localhost:8000/product/singleproduct/'+user._id, productData,
+				{
+					headers: {
+					  'authToken': `Bearer ${user.accessToken}`
+					}
+				}
 				)
 				.then(res=>{
 					notifySuccess()

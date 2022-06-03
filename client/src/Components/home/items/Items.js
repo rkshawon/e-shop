@@ -49,7 +49,7 @@ function Items({scroll}) {
     }
     fetchProduct()
     scroll(scrlRef)
-  },[])
+  },[openModal])
 
   return (
       <div className="ItemContainer1" ref={scrlRef}>

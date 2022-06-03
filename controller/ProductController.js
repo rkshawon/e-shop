@@ -8,10 +8,14 @@ const singleproduct = async (req, res)=>{
         images: req.body.images
     })
     try{
-        const pdata = await productData.save()
-        res.status(200).json(pdata)
+        if(req.user._id === req.params.id || req.user.isAdmin){
+            const pdata = await productData.save()
+            res.status(200).json(pdata)   
+        }else{
+            res.status(403).json("You are not allow to upload product")
+        }
     }catch(err){
-        res.status(500).json(err)
+        res.status(500).json("err")
     }
 }
 const allproduct = async (req, res)=>{

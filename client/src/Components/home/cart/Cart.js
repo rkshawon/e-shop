@@ -76,7 +76,7 @@ function Cart() {
                         <input type="checkbox"/>
                         <p>This order contains a gift</p>
                     </div> 
-                    <NavLink to='/payment' className="checkout_button"> <button >Proceed to checkout</button></NavLink>
+                    <NavLink to='/payment' className="checkout_button"> <span>Proceed to checkout</span></NavLink>
                 </div>
             </div>
         </div>

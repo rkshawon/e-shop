@@ -1,26 +1,22 @@
 import "./payment.css"
 import { NavLink } from "react-router-dom";
-import StripeCheckout from 'react-stripe-checkout';
-import { useContext } from "react";
+import { useStripe, useElements, CardElement} from "@stripe/react-stripe-js"
+import { useContext, useState } from "react";
 import { Context } from "../../../context/shooping/Context";
 import axios from "axios";
-import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { BasketContext } from "../../../context/shooping/BasketContext";
-
-
-const PUBLIC_KEY="pk_test_51KyZM6IP0ODYVACVqmX4DX6hxiHc10xeSIZmu92WFOLgKe4cF526wX66uWgSQk3d6s2sNrsDxqilHQmKYnD19JGi00BzXEw8kg"
 
 
 function Payment() {
   let {user} = useContext(Context)
   const {basket, dispatchB} = useContext(BasketContext)
+  const stripe = useStripe()
+  const elements = useElements()
+  const [processing, setProcessing] = useState(false)
+  const [paySuccess, setPaySuccess] = useState(false)
+  const [payFailed, setPayFailed] = useState(false)
 
-  const options = {
-		position: "top-center",
-	};
-	const notifyerror = () => toast.error("Payment could not be complete !", options);
-	const notifySuccess = () => toast.success("Payment Successfull !", options);
 
   const totalPrice = ()=>{
     let totalSum = 0
@@ -51,31 +47,68 @@ function Payment() {
         id: id
     })
 }
-  const payNow = async token => {
-    try {
-      const response = await axios({
-        url: 'http://localhost:8000/auth/payment/' + user._id,
-        method: 'post',
-        data: {
-          basket: basket,
-          amount: totalPrice(),
-          token,
-        },
-      });
-      if(response.status === 200){
-        notifySuccess()
-        removeItemsfromCard()
+
+
+  const handlePayment = async () => {
+    if (elements == null) {
+      return;
+    }
+    const {error, paymentMethod} = await stripe.createPaymentMethod({
+      type: 'card',
+      card: elements.getElement(CardElement),
+    });
+    if(!error){
+      const {id} = paymentMethod
+      setProcessing(true)
+      try {
+        const response = await axios({
+          url: 'http://localhost:8000/auth/payment/' + user._id,
+          method: 'post',
+          data: {
+            id,
+            basket: basket,
+            amount: totalPrice(),
+          },
+        });
+        if(response.status === 200){
+          setPaySuccess(true)
+          removeItemsfromCard()
+        }
+      } catch (error) {
+        setPayFailed(true)
+        setProcessing(false)
       }
-    } catch (error) {
-      notifyerror()
     }
   };
- 
-  if(basket?.length > 0)
+
+  if(basket?.length > 0 || payFailed || paySuccess)
+  if(paySuccess)
     return (
+      <div className='empty_card'>
+      <span> Payment Successfull</span>
+      <NavLink to="/" style={{ color: 'inherit',  textDecoration: 'inherit'}}>
+          <button>Continue Shoping</button>
+      </NavLink> 
+    </div>
+  )
+  else if(payFailed)
+  return(
+    <div className='empty_card'>
+      <span> Payment Failed</span>
+      <NavLink to='/payment' style={{ color: 'inherit',  textDecoration: 'inherit'}}>
+          <button onClick={()=>setPayFailed(false)}>Try Again</button>
+      </NavLink> 
+    </div>
+  )
+  else
+  return(
     <div className="payment_container">
-    <ToastContainer theme="colored"/>
       <div className="payment_left">
+      <div className="credit_card_container">
+        <form>
+          <CardElement/>
+        </form>
+      </div>
         <h2>Review Your Order</h2>
         <div className="user_address"></div>
         <div className="product_list">
@@ -95,21 +128,27 @@ function Payment() {
       </div>
       <div className="payment_right">
         <div className="checkout_container">
-            <StripeCheckout className="order_btn"
-            stripeKey= {PUBLIC_KEY}
-            label="Place your order"
-            name="Pay With Credit Card"
-            billingAddress
-            shippingAddress
-            amount={totalPrice() *  100}
-            description={`Your total is $${totalPrice()}`}
-            token={payNow}
-          />
-          <p>By placing your order ,you agree to Amazon's
-            <a href="none">privacy notic</a> and <a href="none">condition of use.</a>
-          </p>
-          <p>You also agree to AmazonGlobal's <a href="none">terms and conditions</a>
-          </p>
+        {
+          processing?
+          <div className="loading_circle">
+            <div className="outer_circle">
+              <div className="inner_circle"></div>
+            </div>
+          </div>
+          :
+          <button className="pay_button" onClick={handlePayment}>
+            Place your order
+          </button>
+        }
+
+
+          <div className="term_condition">
+              <p>By placing your order ,you agree to Amazon's
+              <a href="none">privacy notic</a> and <a href="none">condition of use.</a>
+            </p>
+            <p>You also agree to AmazonGlobal's <a href="none">terms and conditions</a>
+            </p>
+          </div>
           <div className="order_summary_container">
             <h4>Order Summary</h4>
           <h5>
@@ -147,11 +186,10 @@ function Payment() {
   else
   return(
       <div className='empty_card'>
-          <span> You did not shop previously</span>
+          <span> Your cart is empty</span>
           <NavLink to="/" style={{ color: 'inherit',  textDecoration: 'inherit'}}>
               <button>Shop Now</button>
-          </NavLink>
-          
+          </NavLink> 
       </div>
   )
 }

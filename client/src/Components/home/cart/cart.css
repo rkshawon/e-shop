@@ -1,4 +1,5 @@
 .cart_container{
+    height: calc(100vh - 100px);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -111,6 +112,14 @@
     border: none;
     border-radius: 10px;
     margin-bottom: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: black;
+}
+.checkout_button span{
+    padding-bottom: 5px;
+    text-align: center;
 }
 .checkout_button:hover{
     cursor: pointer;

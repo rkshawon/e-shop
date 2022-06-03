@@ -22,7 +22,6 @@ function Navbar() {
         dispatch({type: "LOGOUT"})
       }
 
-
   return (
       <header className='headerContainer'>
       {
