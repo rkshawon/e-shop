@@ -81,8 +81,7 @@ function Login() {
         password: password.current.value,
       });
       dispatch({ type: "LOGIN_SUCCESS", payload: res.data });
-      console.log(res.data);
-      res.data && navigate('/')
+      res.data && navigate('/', {replace: true})
     }
     } catch (err) {
       setServerError("Username or password not valid")
@@ -99,10 +98,12 @@ function Login() {
       <div className="sing_in">
       <h2>Sing-In</h2>
       <label>Email</label>
-      <input type = 'text' placeholder='email' className="sing_in_field"  ref = {email}/>
+      <input type = 'text' placeholder='email' className="sing_in_field"
+      ref = {email} onClick= {()=>setErrorMessageEmail('')}/>
       <small >{errorMessageEmail}</small>
       <label>Password</label>
-      <input type = "password" placeholder='password' className="sing_in_field"  ref = {password}/>
+      <input type = "password" placeholder='password' className="sing_in_field"
+      ref = {password} onClick= {()=>setErrorMessagePass('')}/>
       <small >{errorMessagePass}</small>
       <div className="sing_in_btn" onClick={handleLoginClick}><button>Continue</button></div>
       <span>

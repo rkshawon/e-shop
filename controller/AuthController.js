@@ -60,7 +60,15 @@ const register = async (req, res)=>{
             name: req.body.name,
             email: req.body.email,
             password: hassedPassword,
-            isAdmin: req.body.isAdmin
+            isAdmin: req.body.isAdmin,
+            shippingAddress:{
+                ownerName: "",
+                address: "",
+                city: "",
+                zipCode: "",
+                phone: "",
+                shippingEmail: ""
+            },
     })
     userRegister.save()
     .then(user=>{
@@ -92,4 +100,15 @@ const payment = async (req, res)=>{
         res.status(500).json(err)
     }
 }
-module.exports = { logIn, register, refreshToken, payment}
+const shippingAddress = async (req, res)=>{
+    try{
+        const update = await userModel.findByIdAndUpdate(
+            req.params.id, {$set: {shippingAddress: req.body.shippingAddress}}
+        )
+        res.status(200).json(update)
+    }catch(err){
+        res.status(500).json(err)
+    }
+    
+}
+module.exports = { logIn, register, refreshToken, payment, shippingAddress}

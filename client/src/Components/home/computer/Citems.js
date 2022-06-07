@@ -73,9 +73,9 @@ function Citems({desScroll}) {
                   <img src= {product.images} alt=''/>
                 </div>
                 <div className="product_details_container2">
-                  <div className='product_name2'>{product.name}</div>
-                  <h5 className="product_price2">${product.price}</h5>
-                  <div className="product_rating">
+                  <div className='cproduct_name2'>{product.name}</div>
+                  <h5 className="cproduct_price2">${product.price}</h5>
+                  <div className="cproduct_rating2">
                     {
                       [...Array(5)].map((star, i)=>{
                         let ratingValue = i+1

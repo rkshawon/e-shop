@@ -15,6 +15,7 @@ function Register() {
   const [errorMessageEmail, setErrorMessageEmail] = useState('')
   const [errorMessagePass, setErrorMessagePass] = useState('')
   const [errorMessagePass2, setErrorMessagePass2] = useState('')
+  const [serverError, setServerError] = useState('')
   let ename, eemail, epass, epass2 = true
 
   const nameCheck = ()=>{
@@ -30,8 +31,14 @@ function Register() {
       setErrorMessageName("Only Characters A-Z, a-z and '-' are  acceptable.")
     }
     else{
-      ename = false
-      setErrorMessageName("")
+      if(name.current.value.length > 15){
+        ename = true
+        setErrorMessageName("Username must be less than 15 characters")
+      }
+      else{
+        ename = false
+        setErrorMessageName("")
+      }
     }
 
   }
@@ -136,7 +143,7 @@ function Register() {
         await axios.post("http://localhost:8000/order/orders",{ user_id: reg.data._id })
         reg && navigate('/login')
       }catch(err){
-        console.log(err);
+        setServerError("Something went wrong");
       }
 
     }
@@ -153,22 +160,28 @@ function Register() {
         <h2>Create Account</h2>
         <div className="singup_name">
           <label htmlFor="name">Your name</label>
-          <input type="text" id="name" className="name_field" ref = {name}/>
+          <input type="text" id="name" className="name_field" ref = {name}
+          onClick= {()=>setErrorMessageName('')}/>
           <small >{errorMessageName}</small>
         </div>
         <div className="singup_email">
           <label htmlFor="email">Email</label>
-          <input type="text" id="email" className="email_field" ref = {email}/>
+          <input type="text" id="email" className="email_field" ref = {email}
+          onClick= {()=>setErrorMessageEmail('')}/>
           <small >{errorMessageEmail}</small>
         </div>
         <div className="singup_password">
           <label htmlFor="password">Password</label>
-          <input type="text" id="password" placeholder='At least 6 characters' className="password_field" ref = {password}/>
+          <input type="text" id="password" placeholder='At least 6 characters'
+            className="password_field" ref = {password}
+            onClick= {()=>setErrorMessagePass('')}/>
           <small >{errorMessagePass}</small>
         </div>
         <div className="singup_confirm_password">
           <label htmlFor="confirm_password">Re-enter password</label>
-          <input type="text" id="confirm_password" className="confirm_password_field" ref = {confirmPassword}/>
+          <input type="text" id="confirm_password"
+            className="confirm_password_field" ref = {confirmPassword}
+            onClick= {()=>setErrorMessagePass2('')}/>
           <small >{errorMessagePass2}</small>
         </div>
         <div className="isAdmin">
@@ -184,6 +197,7 @@ function Register() {
           <a href="https://www.amazon.com/gp/help/customer/display.html/ref=ap_signin_notification_privacy_notice?ie=UTF8&nodeId=468496"> Privacy Notic </a>
         </span>
         <p>Already have an account? <Link to="/login">Sing-In</Link></p>
+        <div>{serverError}</div>
       </div>
       </div>
     </div>

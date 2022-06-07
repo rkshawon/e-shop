@@ -1,0 +1,73 @@
+.shipping_Container{
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+.shipping_form{
+    min-height: 550px;
+    width: 350px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 5px;
+    box-shadow: 0px 0px 1px 0px rgba(0,0,0,0.75);
+}
+.shipping_form h2{
+    width: 90%;
+    margin: 10px;
+}
+.shipping_form input{
+    outline: none;
+    height: 30px;
+}
+.s_phone, .s_name, .s_address, .s_email, .s_zipcode, .s_city{
+    height: 70px;
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+.s_cityzip{
+    width: 90%;
+    display: flex;
+    justify-content: space-between;
+}
+.s_zipcode{
+    width: 25%;
+}
+.s_city{
+    width: 70%;
+}
+.shipping_form span{
+    font-size: .8em;
+}
+.submit_btn{
+    width: 90%;
+    height: 35px;
+    margin: 10px;
+    color: white;
+    background-color: coral;
+    border: none;
+}
+.submit_btn:hover{
+    cursor: pointer;
+}
+.shipping_Container span{
+    color: #c40000;
+    font-size: 12px;
+}
+@media screen and (max-width: 380px) {
+    .shipping_form{
+        width: 90%;
+        min-width: 150px;
+    }
+    .s_zipcode{
+        width: 40%;
+    }
+    .s_city{
+        width: 50%;
+    }
+}

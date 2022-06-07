@@ -48,10 +48,9 @@ function Cart() {
                             <img src= {b.image} alt=''/>
                         </div>
                         <div className="card_description">
-                            <div className="product_name">{b.name}
+                            <div className="cart_product_name">{b.name}
                             </div>
-                            <div className="product_price">${b.price}</div>
-                            <div className="product_rating">5start</div>
+                            <div className="cart_product_price">${b.price}</div>
                             <div className="quantity_container">
                                 <button className="decrease"
                                     onClick={()=>changeQuantity("minus", b.id)}>
@@ -86,7 +85,7 @@ function Cart() {
             <div className='empty_card'>
                 <span> Card is empty</span>
                 <NavLink to="/" style={{ color: 'inherit',  textDecoration: 'inherit'}}>
-                    <button>Shop Now</button>
+                    <button className='shop_now'>Shop Now</button>
                 </NavLink>
                 
             </div>

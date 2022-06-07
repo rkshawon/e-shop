@@ -5,6 +5,7 @@ const { body } = require('express-validator');
 
 route.post('/refreshtoken', AuthController.refreshToken)
 route.post('/payment/:id', AuthController.payment)
+route.put('/shipping/:id', AuthController.shippingAddress)
 route.post('/login', AuthController.logIn)
 route.post('/register',
     body('name').notEmpty().withMessage("Username can not be empty"),

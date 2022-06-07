@@ -28,6 +28,9 @@
    color: white;
    font-size: larger;
 }
+.menuicon2:hover{
+    cursor: pointer;
+}
 @media screen and (max-width: 320px){
     .ulContainer li:nth-child(3){
         display: none;

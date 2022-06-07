@@ -15,9 +15,14 @@ function Admin() {
 	const {user, dispatch} = useContext(Context)
 	const [selectedFile, setSelectedFile] = useState()
     const [preview, setPreview] = useState()
-	const [productName, setProductName] = useState()
-	const [productPrice, setProductPrice] = useState()
+	const [productName, setProductName] = useState('')
+	const [productPrice, setProductPrice] = useState(0)
 	const [category, setCategory] = useState()
+	const [errorMessageName, setErrorMessageName] = useState('')
+    const [errorMessagePrice, setErrorMessagePrice] = useState('')
+    const [errorMessageImage, setErrorMessageImage] = useState('')
+
+    let ename, eprice, eimage = true
 
 	const options = {
 		position: "top-center",
@@ -57,6 +62,75 @@ function Admin() {
 	  );
 
 
+	     
+  const nameCheck = ()=>{
+	let spaceCheck = productName
+    const validateName=()=>{
+      if(String(spaceCheck.split(/\s/).join('')).match(/^[a-zA-Z\-]+$/))
+        return true
+      else
+        return false
+    }
+
+    if(!validateName()){
+      ename = true
+      setErrorMessageName("Only Characters A-Z, a-z and '-' are  acceptable.")
+    }
+    else{
+      if(productName.length > 80){
+        ename = true
+        setErrorMessageName("Name must be less than 80 characters")
+      }
+      else{
+        ename = false
+        setErrorMessageName("")
+      }
+    }
+
+  }
+  const priceCheck = ()=>{
+    if(productPrice < 1 || productPrice > 9999999){
+      eprice = true
+      setErrorMessagePrice("Price must be between 1 to 9999999")
+    }
+    else{
+      eprice = false
+      setErrorMessagePrice("")
+    }
+  }
+    
+    const formValidation = ()=>{
+        if(productName ===''){
+          ename = true
+          setErrorMessageName("Name can not be empty")
+        }
+        else{
+          nameCheck()
+        }
+        
+        if(!selectedFile){
+          eimage = true
+          setErrorMessageImage("Image not selected or unsupported")
+        }else{
+			eimage = false
+			setErrorMessageImage("")
+		}
+          
+        if(productPrice === 0){
+          eprice = true
+          setErrorMessagePrice("Price can not be empty")
+        }
+        else{
+          priceCheck()
+        }
+      }
+    
+    const errorContainer = ()=>{
+      if(ename || eimage || eprice)
+        return true
+      else
+        return false
+    }
 
 	useEffect(() => {
         if (!selectedFile) {
@@ -68,6 +142,7 @@ function Admin() {
 
         return () => URL.revokeObjectURL(objectUrl)
     }, [selectedFile])
+
 	const handleImageChange = (e)=>{
 		if (!e.target.files || e.target.files.length === 0) {
             setSelectedFile(undefined)
@@ -76,6 +151,9 @@ function Admin() {
         setSelectedFile(e.target.files[0])
 	}
 	const submitProduct = ()=>{
+		formValidation()
+		if(!errorContainer()){
+			console.log('in');
 		notify()
 		if(selectedFile == null) return
 		const imageRef = ref(storage, `EShopImages/${selectedFile.name + v4()}`)
@@ -111,6 +189,7 @@ function Admin() {
 			notifyerror()
 		})
 	}
+}
 	
     return (
         <div className='admin_Container'>
@@ -123,13 +202,19 @@ function Admin() {
 			<h2>Product Form</h2>
 			<div className="p_name">
 				<label htmlFor="name">Name</label>
-				<input type='text' id="name" onChange={(e)=>setProductName(e.target.value)}/>
-				<span>Can not be empty</span>
+				<input type='text' id="name"
+					onChange={(e)=>setProductName(e.target.value)}
+					onClick= {()=>setErrorMessageName('')}
+				/>
+				<span>{errorMessageName}</span>
 			</div>
 			<div className="p_price">
 				<label htmlFor="price">Price</label>
-				<input type='number' id="price" onChange={(e)=>setProductPrice(e.target.value)}/>
-				<span>Can not be empty</span>
+				<input type='number' id="price"
+					onChange={(e)=>setProductPrice(e.target.value)}
+					onClick= {()=>setErrorMessagePrice('')}
+				/>
+				<span>{errorMessagePrice}</span>
 			</div>
 			<div className="p_category">
 				<label htmlFor="category">Category</label>
@@ -138,12 +223,11 @@ function Admin() {
 					<option value="Laptop">Laptop</option>
 					<option value="Mobile">Mobile</option>
 				</select>
-				<span>Can not be empty</span>
 			</div>
 			<div className="p_image">
 				<label>Choose Image</label>
-				<input type='file' onChange={handleImageChange} />
-				<span>Can not be empty</span>
+				<input type='file' onChange={handleImageChange} onClick= {()=>setErrorMessageImage('')}/>
+				<span>{errorMessageImage}</span>
 			</div>
 			<div className="image_container">
 				{selectedFile &&  <img src={preview} alt='img' /> }

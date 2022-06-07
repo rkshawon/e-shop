@@ -23,6 +23,33 @@ const uModel =  new Schema({
         type: Boolean,
         default: false
     },
+    shippingAddress:{
+        ownerName:{
+            type: String,
+            max:30,
+        },
+        address:{
+            type: String,
+            max: 90
+        },
+        city:{
+            type: String,
+            max: 15
+        },
+        zipCode:{
+            type: String,
+            max: 6,
+            min:2
+        },
+        phone:{
+            type: String,
+            max:11,
+            min:10
+        },
+        shippingEmail:{
+            type: String,
+        }
+    },
 }, {timestamps: true})
 
 const userModel = mongoose.model("User", uModel)

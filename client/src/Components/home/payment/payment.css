@@ -1,7 +1,7 @@
 .payment_container{
     width: 100%;
     display: flex;
-    height: calc(100vh - 100px);
+    margin-left: 20px;
 }
 .payment_left{
     width: 70%;
@@ -10,8 +10,9 @@
     margin: 10px;
 }
 .credit_card_container{
-    height: 200px;
+    height: 50px;
     width: 50%;
+    margin-top: 20px;
 }
 .payment_left h2{
     width: 95%;
@@ -51,9 +52,10 @@
 
 }
 .payment_right{
-    width: 30%;
+    width: 30%; 
 }
 .checkout_container{
+    min-width: 200px;
     width: 70%;
     background-color: white;
     display: flex;
@@ -156,4 +158,67 @@ h4{
 .order_description p, .order_description a{
     width: 90%;
     padding: 5px;
+}
+.shipping_address_container{
+    margin-right: 10px;
+    margin-bottom: 20px;
+    min-width: 180px;
+}
+.shipping_address_container h2{
+    margin-bottom: 10px;
+}
+.shipping_email{
+    margin-bottom: 10px;
+}
+.shipping_address_container span{
+    margin-right: 5px;
+}
+.noaddress_container div{
+    margin-bottom: 5px;
+}
+.shipping_address_container .update_button{
+    height: 20px;
+    width: 20px;
+    color: rgb(118, 194, 5);
+    font-weight: bolder;
+    font-size: large;
+}
+.update_button:hover{
+    cursor: pointer;
+}
+@media screen and  (max-width: 53.1rem){
+    .payment_container{
+        flex-direction: column;
+    }
+    .payment_order_list_container{
+        height: 280px;
+        flex-direction: column;
+    }
+    .credit_card_container{
+        width: 80%;
+    }
+    .checkout_container{
+        width: 100%;
+    }
+}
+@media screen and  (max-width: 480px){
+    .payment_container{
+        width: 100%;
+        display: flex;
+        margin-left: 5px;
+    }
+    .payment_left{
+        width: 97%;
+    }
+    .payment_product_image{
+        height: 120px;
+        width: 150px;
+    }
+    .payment_product_image img{
+        height: 100%;
+        width: 100%; 
+    }
+    .credit_card_container{
+        width: 95%;
+    }
 }

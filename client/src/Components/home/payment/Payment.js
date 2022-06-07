@@ -6,6 +6,7 @@ import { Context } from "../../../context/shooping/Context";
 import axios from "axios";
 import 'react-toastify/dist/ReactToastify.css';
 import { BasketContext } from "../../../context/shooping/BasketContext";
+import {FiEdit} from 'react-icons/fi'
 
 
 function Payment() {
@@ -13,12 +14,13 @@ function Payment() {
   const {basket, dispatchB} = useContext(BasketContext)
   const stripe = useStripe()
   const elements = useElements()
+  const [shippingAddress, setShippingAddress] = useState(false)
   const [processing, setProcessing] = useState(false)
   const [paySuccess, setPaySuccess] = useState(false)
   const [payFailed, setPayFailed] = useState(false)
 
-
   const totalPrice = ()=>{
+    
     let totalSum = 0
     basket?.forEach(b => { totalSum = totalSum + (b.price * b.quantity)})
     return totalSum
@@ -87,7 +89,7 @@ function Payment() {
       <div className='empty_card'>
       <span> Payment Successfull</span>
       <NavLink to="/" style={{ color: 'inherit',  textDecoration: 'inherit'}}>
-          <button>Continue Shoping</button>
+          <button className="shop_now">Shop more</button>
       </NavLink> 
     </div>
   )
@@ -96,7 +98,7 @@ function Payment() {
     <div className='empty_card'>
       <span> Payment Failed</span>
       <NavLink to='/payment' style={{ color: 'inherit',  textDecoration: 'inherit'}}>
-          <button onClick={()=>setPayFailed(false)}>Try Again</button>
+          <button className="shop_now" onClick={()=>setPayFailed(false)}>Try Again</button>
       </NavLink> 
     </div>
   )
@@ -104,6 +106,31 @@ function Payment() {
   return(
     <div className="payment_container">
       <div className="payment_left">
+      <div className="shipping_address_container">
+      { !shippingAddress?
+          <div className="address_container">
+          <h2>Shipping Address</h2>
+          <h3 className="shipping_name">Name: {user?.shippingAddress?.ownerName}</h3>
+          <div className="shipping_address">Address: {user?.shippingAddress?.address}</div>
+          <span className="shipping_city">{user?.shippingAddress?.city}</span>
+          <span className="shipping_zipcode">{user?.shippingAddress?.zipCode}</span>
+          <div className="shipping_contact">{user?.shippingAddress?.phone}</div>
+          <div className="shipping_email">{user?.shippingAddress?.shippingEmail}</div>
+          <NavLink to='/shipping' style={{ color: 'inherit',  textDecoration: 'inherit'}}>
+            <small className="update_button"><span>Change Address</span><FiEdit/></small>
+          </NavLink>
+        </div>
+        :
+        <div className="noaddress_container">
+          <h2>Shipping Address</h2>
+          <div>No shipping address Added</div>
+          <NavLink to='/shipping' style={{ color: 'inherit',  textDecoration: 'inherit'}}>
+            <small className="update_button"><span>Add Now</span><FiEdit/></small>
+          </NavLink>
+        </div>
+      }
+
+      </div>
       <div className="credit_card_container">
         <form>
           <CardElement/>
@@ -188,7 +215,7 @@ function Payment() {
       <div className='empty_card'>
           <span> Your cart is empty</span>
           <NavLink to="/" style={{ color: 'inherit',  textDecoration: 'inherit'}}>
-              <button>Shop Now</button>
+              <button className="shop_now">Shop Now</button>
           </NavLink> 
       </div>
   )

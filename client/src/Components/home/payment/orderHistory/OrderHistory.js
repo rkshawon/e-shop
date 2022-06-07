@@ -10,12 +10,12 @@ function OrderHistory() {
 
   useEffect(()=>{
     const fetchOrderHistory= async ()=>{
-      const p = await axios.get("http://localhost:8000/order/getorders/" + user._id)
+      const p = await axios.get("http://localhost:8000/order/getorders/" + user?._id)
       setOrderhistory(p.data[0].orders)
     }
     fetchOrderHistory()
     
-  },[user._id])
+  },[user?._id])
 
   return (
     <div className="order_history_container">

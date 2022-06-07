@@ -8,3 +8,26 @@
     justify-content:center;
     align-items: center;
 }
+.shop_now{
+    font-size: 14px;
+    color: white;
+    height: 40px;
+    width: 100px;
+    background-color: black;
+    border-radius: 5%;
+    margin-top: 10px;
+}
+.shop_now:hover{
+    cursor: pointer;
+    background-color: rgb(43, 40, 40);
+}
+@media screen and  (max-width: 53.1rem){
+    .shop_now{
+        font-size: 12px;
+        height: 30px;
+        width: 80px;
+    }
+}
+@media screen and (max-width: 480px) {
+
+}

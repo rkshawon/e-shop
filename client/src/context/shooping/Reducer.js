@@ -18,11 +18,19 @@ const Reducer = (state, action)=>{
               isFetching: false,
               error: true,
             };
+        case "UPDATE_ADDRESS":
+            let newUser = {...state.user}
+            newUser.shippingAddress = action.payload
+            return{
+                user: newUser ,
+                isFetching: false,
+                error: false, 
+            }
         case "UPDATE_TOKEN":
             return{
               user: {...state.user, accessToken: action.payload.accessToken, refreshToken: action.payload.refreshToken},
               isFetching: false,
-              error: true, 
+              error: false, 
             }
         case "LOGOUT":
               return {
