@@ -153,7 +153,6 @@ function Admin() {
 	const submitProduct = ()=>{
 		formValidation()
 		if(!errorContainer()){
-			console.log('in');
 		notify()
 		if(selectedFile == null) return
 		const imageRef = ref(storage, `EShopImages/${selectedFile.name + v4()}`)
@@ -167,7 +166,7 @@ function Admin() {
 					category: category,
 					images: url
 				}
-				axiosJWT.post('http://localhost:8000/product/singleproduct/'+user._id, productData,
+				axiosJWT.post('http://localhost:8000/product/singleproduct/' + user._id, productData,
 				{
 					headers: {
 					  'authToken': `Bearer ${user.accessToken}`

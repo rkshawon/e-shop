@@ -22,6 +22,12 @@
     position: absolute;
     right: 0;
     margin: 10px;
+    height: 40px;
+    width: 35px;
+    background-color: transparent;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
 }
 .submit_rating{
     margin-top: 5%;
@@ -45,10 +51,49 @@
 }
 .star:hover{
     cursor: pointer;
+    color: #ffc107;
 }
 .submit_rating_btn{
+    font-size: 14px;
+    color: white;
+    height: 35px;
+    width: 80px;
+    background-color: black;
+    border-radius: 5%;
     margin-top: 20px;
 }
 .submit_rating_btn:hover{
     cursor: pointer;
+    background-color: rgb(43, 40, 40);
+}
+.already_rated{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+.singin_to_rate{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+@media screen and (max-width: 480px) {
+    .modal{
+        width: 90%;
+    }
+    .submit_rating_btn{
+        font-size: 12px;
+        height: 30px;
+        width: 60px;
+    }
+    .rating_title h3{
+        font-size: 18px;
+    }
+    .close_btn{
+        margin: 5px;
+        height: 30px;
+        width: 30px;
+        font-size: 18px;
+    }
 }

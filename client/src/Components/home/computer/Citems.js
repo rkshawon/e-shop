@@ -17,6 +17,7 @@ function Citems({desScroll}) {
   const [product, setProduct] = useState()
   const {user} = useContext(Context)
   const dscrlRef = useRef()
+  
 
   const addToCard = (id, name, price, image)=>{
     let repeatecheck = true
@@ -60,7 +61,7 @@ function Citems({desScroll}) {
         open = {openModal}
         close = {()=>setOpenModal(false)}
         productid = {product._id}
-        userid = {user._id}/>
+        userid = {user?._id}/>
       }
         <div className="itemWrapper2">
         <h2>Best Selling Desktops</h2>

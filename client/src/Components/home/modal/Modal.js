@@ -4,13 +4,15 @@ import {FaStar} from 'react-icons/fa'
 import { v4 } from 'uuid'
 import { useEffect, useState } from 'react'
 import axios from 'axios'
+import {ImCross} from 'react-icons/im'
+import { NavLink } from 'react-router-dom'
 
 function Modal({open, close, productid, userid}) {
     const [rating, setRating] = useState(0)
+    const [hoverOverRating, setHoveroverRating] = useState(null)
     const [allowtoRate, setAllowtoRate] = useState(true)
     const [product, setProduct] = useState()
     const [rateSuccess, setRateSuccess] = useState(false)
-    
 
     useEffect(()=>{
         const fetchProduct = async ()=>{
@@ -21,15 +23,14 @@ function Modal({open, close, productid, userid}) {
             }catch(err){
                 console.log(err);
             }
-
         }
-
         fetchProduct()
           
         const checkUser = ((prdt)=>{
             prdt.user_id.forEach((id)=>{
                 if(userid === id)
                     setAllowtoRate(false)
+                    return
             })
         })
         
@@ -57,8 +58,9 @@ function Modal({open, close, productid, userid}) {
     return ReactDOM.createPortal(
         <div className='modal_container'>
             <div className="modal">
-                <button className='close_btn' onClick={close}>X</button>
+                <button className='close_btn' onClick={close}><ImCross/></button>
                 {
+                userid?
                 allowtoRate === true ?
                 rateSuccess === false?
                 <div className="submit_rating">
@@ -74,8 +76,10 @@ function Modal({open, close, productid, userid}) {
                             <label key={v4()}>
                             <input type='radio' value={ratingValue} onClick={()=>setRating(ratingValue)} />
                             <FaStar
+                            onMouseEnter={()=>setHoveroverRating(ratingValue)}
+                            onMouseLeave={()=>setHoveroverRating(null)}
                             className='star'
-                            color={ratingValue <= rating ? '#ffc107' : '#e4e5e9'}
+                            color={ratingValue <= (hoverOverRating || rating) ? '#ffc107' : '#e4e5e9'}
                             size={30}
                             /> 
                             </label>
@@ -85,8 +89,14 @@ function Modal({open, close, productid, userid}) {
                 </div>
                 <button className='submit_rating_btn' onClick={sendRating}>Submit</button>
             </div>:
-            <div>Rate Successffull</div>:
-            <div>Not Allowed</div>
+            <div className = 'already_rated' >Rate Successful</div>
+            :
+            <div className='already_rated'>You already rated</div>
+            :
+            <NavLink to="/login" style={{ color: 'inherit',  textDecoration: 'inherit'}}>
+                <button className='submit_rating_btn already_rated' onClick={sendRating}>Sing in</button>
+            </NavLink>
+            
         }
         </div>
             

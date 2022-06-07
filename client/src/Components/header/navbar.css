@@ -147,6 +147,9 @@
 }
 
 @media screen and  (min-width: 53.1rem){
+    .menuicon{
+        display: none;
+    }
     .middleheader{
         display: none;
     }

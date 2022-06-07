@@ -6,7 +6,7 @@ const singleproduct = async (req, res)=>{
         price: req.body.price,
         category: req.body.category || 'Desktop',
         images: req.body.images,
-        admin_id: req.body.admin_id
+        admin_id: req.params.id
     })
     try{
         if(req.user._id === req.params.id || req.user.isAdmin){

@@ -3,6 +3,7 @@ import { Context } from '../../../context/shooping/Context'
 import { NavLink } from "react-router-dom";
 import {RiAdminLine} from 'react-icons/ri'
 import {FiUser} from 'react-icons/fi'
+import {ImCross} from 'react-icons/im'
 import {AiOutlineHome} from 'react-icons/ai'
 import {BiHistory, BiLogOut} from 'react-icons/bi'
 import './menu.css'
@@ -19,10 +20,9 @@ function Menu({open, close}) {
     <div className='menu_container'>
     <div className="menu_list">
     <div className="menu_amazon_title">
-    
       <NavLink to="/login" onClick={logOut} style={{ color: 'inherit',  textDecoration: 'inherit'}}>
       <div className="menu_navbar">
-          <FiUser className='menu_navbar_icon'/>
+          <FiUser className='menu_navbar_profile_icon'/>
           <div className="menu_navbar_text">
               <h5>{user? `Hello, ${user.name}`: `Welcome to Amazon`}</h5>
           </div>
@@ -32,13 +32,13 @@ function Menu({open, close}) {
       <small>Browse</small>
       <div>Amazon</div>
     </div>
-    <NavLink to="/" style={{ color: 'inherit',  textDecoration: 'inherit'}}  onClick={close}>
+    <NavLink to="/" style={{ color: 'inherit', textDecoration: 'inherit'}}  onClick={close}>
     <div className='menu_navbars'>
         <AiOutlineHome className='menu_navbar_icon'/>
         <h5 className="menu_navbar_text">Home</h5> 
     </div>
 </NavLink>
-    <NavLink to="/orderhistory" style={{ color: 'inherit',  textDecoration: 'inherit'}}  onClick={close}>
+    <NavLink to="/orderhistory" style={{ color: 'inherit', textDecoration: 'inherit'}}  onClick={close}>
         <div className='menu_navbars'>
             <BiHistory className='menu_navbar_icon'/>
             <h5 className="menu_navbar_text">Orders</h5> 
@@ -46,7 +46,7 @@ function Menu({open, close}) {
     </NavLink>
     {
         user?.isAdmin &&
-        <NavLink to="/admin" style={{ color: 'inherit',  textDecoration: 'inherit'}}>
+        <NavLink to="/admin" style={{ color: 'inherit', textDecoration: 'inherit'}}>
         <div className="menu_navbars">
             <RiAdminLine className='menu_navbar_icon'/>
             <h5 className="menu_navbar_text">Admin</h5>
@@ -55,13 +55,13 @@ function Menu({open, close}) {
 } 
 {
   user ?
-  <NavLink to="/login" onClick={logOut} style={{ color: 'inherit',  textDecoration: 'inherit'}}>
+  <NavLink to="/login" onClick={logOut} style={{ color: 'inherit', textDecoration: 'inherit'}}>
   <div className="menu_navbars">
       <BiLogOut className='menu_navbar_icon'/>
       <h5 className="menu_navbar_text">Sing Out</h5>
   </div>
 </NavLink> :
-<NavLink to="/login" style={{ color: 'inherit',  textDecoration: 'inherit'}}>
+<NavLink to="/login" style={{ color: 'inherit', textDecoration: 'inherit'}}>
 <div className="menu_navbars">
   <BiLogOut className='menu_navbar_icon'/>
   <h5 className="menu_navbar_text">Sing in</h5>
@@ -69,7 +69,7 @@ function Menu({open, close}) {
 </NavLink>
 }
 </div>  
-<button className="close_btton" onClick={close}>X</button>
+<button className="close_btton" onClick={close}><ImCross/></button>
 </div>
   )
 }

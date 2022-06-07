@@ -29,7 +29,6 @@ h2{
     align-items: center;
 }
 .product_image_container{
-    background-color: red;
     height: 60%;
     width: 100%;
     display: flex;

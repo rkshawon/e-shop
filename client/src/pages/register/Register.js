@@ -19,8 +19,9 @@ function Register() {
   let ename, eemail, epass, epass2 = true
 
   const nameCheck = ()=>{
+	let spaceCheck = name.current.value
     const validateName=()=>{
-      if(String(name.current.value).match(/^[a-zA-Z\-]+$/))
+      if(String(spaceCheck.split(/\s/).join('')).match(/^[a-zA-Z\-]+$/))
         return true
       else
         return false

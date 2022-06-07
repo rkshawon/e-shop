@@ -112,7 +112,7 @@ export default class SlideItems extends Component{
         open = {this.state.openModal}
         close = {()=>this.setState({openModal: false})}
         productid = {this.state.product._id}
-        userid = {this.state.user._id}/>
+        userid = {this.state.user?._id}/>
       }
         <div className="item_leftSlider"
           onClick={()=>this.slideRef.current.slickPrev()}>

@@ -58,7 +58,7 @@ function Items({scroll}) {
         open = {openModal}
         close = {()=>setOpenModal(false)}
         productid = {product._id}
-        userid = {user._id}/>
+        userid = {user?._id}/>
       }
         <div className="itemWrapper">
         <h2>Popular Smart Phones</h2>
