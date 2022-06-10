@@ -2,7 +2,6 @@ h1{
     margin-left: 3%;
 }
 h2{
-   
     width: 100%;
 }
 .search_container{
@@ -17,7 +16,7 @@ h2{
 }
 .search_item{
     height: 400px;
-    width: 330px;
+    width: 320px;
     margin: 7px;
     display: flex;
     flex-direction: column;
@@ -51,6 +50,15 @@ h2{
     width: 100%;
     font-weight: 500;
 }
+.search_product_price{
+    position: absolute;
+    bottom: 70px;
+}
+.search_product_rating{
+    bottom: 45px;
+    position: absolute;
+    height: 20px;
+}
 .search_product_rating img{
     height: 20px;
     width: 20px;
@@ -62,6 +70,21 @@ h2{
 .search_addto_card{
     margin-bottom: 10px;
     bottom: 0;
-    padding: 2px 5px;
     position: absolute;
+    background-color: rgb(255, 210, 8);
+    box-shadow: 0px 2px 5px 0px rgba(156,156,156,0.75);
+    border: none;
+    width: 150px;
+    height: 25px;
+    padding: 0px 20px;
+    border-radius: 20px;
+}
+@media screen and (max-width: 380px) {
+    .search_item{
+        height: 350px;
+        width: 300px;
+    }
+    .search_product_image_container img{
+        min-width: 250px;
+    }
 }

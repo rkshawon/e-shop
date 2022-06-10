@@ -72,6 +72,7 @@
     margin-top: 5%;
 }
 .sing_up_btn+span{
+    font-size: 12px;
     margin-top: 4%;
 }
 .sing_up_btn~div{
@@ -80,8 +81,8 @@
     font-size: 14px;
     text-align: center;
 }
-.sing_up a{
-    color: blue;
+.sing_up a, .sing_up p{
+    font-size: 13px;
     text-decoration: none;
 }
 .isAdmin{

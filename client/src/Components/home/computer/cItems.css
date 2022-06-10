@@ -85,7 +85,7 @@
         width: 470px;
     }
 }
-@media screen and (max-width: 370px) {
+@media screen and (max-width: 380px) {
     .product_image_container2{
         height: 180px;
         width: 200px;

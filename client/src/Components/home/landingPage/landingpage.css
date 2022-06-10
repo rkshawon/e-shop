@@ -26,7 +26,7 @@
     flex-direction: column;
 }
 .slider{
-    height: 35%;
+    height: 40%;
     width: 100%;
     display: flex;
     align-items: center;
@@ -34,7 +34,7 @@
     margin-top: 1px;
 }
 .leftSlider{
-    height: 100%;
+    height: 105%;
     width: 5%;
     margin-top: 1%;
     display: flex;
@@ -42,16 +42,36 @@
     justify-content: center;
     border: 2px solid rgba(0, 0, 0, 0);
 }
-.leftSlider:hover{
-    cursor: pointer;
-    border: 2px solid rgb(42, 0, 139);
+.leftSliderin{
+    height: 98%;
+    width: 98%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid rgba(0, 0, 0, 0);
 }
-.leftArrow{
+.rightSliderin{
+    height: 98%;
+    width: 98%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid rgba(0, 0, 0, 0);
+}
+.leftSlider:hover, .rightSlider:hover{
+    cursor: pointer;
+    border: 2px solid rgb(255, 255, 255);
+}
+.leftSliderin:hover, .rightSliderin:hover{
+    border: 2px solid rgb(0, 142, 207);
+}
+.arrows{
     color: white;
     font-size: 40px;
 }
+
 .rightSlider{
-    height: 100%;
+    height: 105%;
     width: 5%;
     margin-top: 1%;
     display: flex;
@@ -59,10 +79,7 @@
     justify-content: center;
     border: 2px solid rgba(0, 0, 0, 0);
 }
-.rightSlider:hover{
-    cursor: pointer;
-    border: 2px solid rgb(42, 0, 139);
-}
+
 .firstItemContainer{
     height: 100%;
     display: flex;

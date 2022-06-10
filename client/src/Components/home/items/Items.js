@@ -6,6 +6,7 @@ import {v4} from 'uuid'
 import Modal from '../modal/Modal'
 import { BasketContext } from '../../../context/shooping/BasketContext'
 import { Context } from '../../../context/shooping/Context'
+import LoadingCircle from '../loading/LoadingCircle'
 
 
 function Items({scroll}) {
@@ -13,6 +14,7 @@ function Items({scroll}) {
   const {basket, dispatchB} = useContext(BasketContext)
   const [openModal, setOpenModal] = useState(false)
   const [product, setProduct] = useState()
+  const [processing, setProcessing] = useState(true)
   const {user} = useContext(Context)
   const scrlRef = useRef()
 
@@ -43,6 +45,7 @@ function Items({scroll}) {
         const items = await axios.get('http://localhost:8000/product/allproduct')
         //console.log(items.data);
         setProducts(items.data)
+        setProcessing(false)
       }catch(err){
         
       }
@@ -62,7 +65,7 @@ function Items({scroll}) {
       }
         <div className="itemWrapper">
         <h2>Popular Smart Phones</h2>
-        {
+        { !processing?
           products && products.map((product, index)=>{
             if(product.category === 'Mobile')
               return <div key ={v4()} className="item">
@@ -98,6 +101,8 @@ function Items({scroll}) {
             else
               return undefined
           })
+          :
+          <LoadingCircle/>
         }
         </div>
       </div>

@@ -1,10 +1,13 @@
 import { useContext } from 'react'
 import { NavLink } from 'react-router-dom'
 import { BasketContext } from '../../../context/shooping/BasketContext'
+import { Context } from '../../../context/shooping/Context'
 import './cart.css'
 
 function Cart() {
     const {basket, dispatchB} = useContext(BasketContext)
+    const {user} = useContext(Context)
+
     const totalPrice = ()=>{
         let totalSum = 0
         basket.forEach(b => { totalSum = totalSum + b.price * b.quantity})
@@ -75,7 +78,7 @@ function Cart() {
                         <input type="checkbox"/>
                         <p>This order contains a gift</p>
                     </div> 
-                    <NavLink to='/payment' className="checkout_button"> <span>Proceed to checkout</span></NavLink>
+                    <NavLink to={user?'/payment' : '/login'} className="checkout_button"> <span>Proceed to checkout</span></NavLink>
                 </div>
             </div>
         </div>

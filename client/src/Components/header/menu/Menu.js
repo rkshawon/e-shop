@@ -69,7 +69,9 @@ function Menu({open, close}) {
 </NavLink>
 }
 </div>  
-<button className="close_btton" onClick={close}><ImCross/></button>
+  <div onClick={close}>
+    <button className="close_btton" ><ImCross/></button>
+  </div>
 </div>
   )
 }

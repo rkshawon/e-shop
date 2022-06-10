@@ -51,7 +51,7 @@ function Search() {
   
     return (
         <>
-        {searchResult?.length >0 ? <h1>Search Results:</h1> : <h2>No Product found</h2>}
+        {searchResult?.length > 0 ? <h1>RESULTS:</h1> : <h2>No Product found</h2>}
         <div className="search_container">
         {
           openModal && <Modal 

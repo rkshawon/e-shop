@@ -66,12 +66,28 @@ function Landingpage({scrlF, slidescrlF, destopScrlF}) {
             if(backImgControllerRight> 4 ){
                 setBackImgControllerRight(0)
             }
-            if( backImgControllerLeft <1){
+            if(backImgControllerLeft < 0){
                 setBackImgControllerLeft(4)
             }
-    }
+        }
     slider()
     },[backImgControllerRight, backImgControllerLeft])
+           
+    useEffect(()=>{
+        let timer = 0
+        const autoSlide = ()=>{
+            const intervalId = setInterval(()=>{
+                if(timer>4)
+                timer = 0
+                else{
+                    setImageToRender(timer)
+                    timer = timer +1
+                }        
+            }, 3000)
+            return ()=> clearInterval(intervalId)
+        } 
+    autoSlide()
+    },[])
 
   return (
     <div className="landingpage">
@@ -85,8 +101,16 @@ function Landingpage({scrlF, slidescrlF, destopScrlF}) {
         </div>
         <div className="Container">
             <div className="slider">
-                <div className="leftSlider" onClick={()=>changeImage("left")}><AiOutlineLeft className='leftArrow'/></div>
-                <div className="rightSlider"  onClick={()=>changeImage("right")}><AiOutlineRight className='leftArrow'/></div>
+                <div className="leftSlider" onClick={()=>changeImage("left")}>
+                    <div className="leftSliderin">
+                        <AiOutlineLeft className='arrows'/>
+                    </div>
+                </div>
+                <div className="rightSlider"  onClick={()=>changeImage("right")}>
+                    <div className="rightSliderin">
+                        <AiOutlineRight className='arrows'/>
+                    </div>
+                </div>
             </div>
             
             <div className="firstItemContainer">

@@ -101,6 +101,7 @@ const payment = async (req, res)=>{
     }
 }
 const shippingAddress = async (req, res)=>{
+    //console.log(req.body);
     try{
         const update = await userModel.findByIdAndUpdate(
             req.params.id, {$set: {shippingAddress: req.body.shippingAddress}}

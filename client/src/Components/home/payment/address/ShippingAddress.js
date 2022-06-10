@@ -26,8 +26,9 @@ function ShippingAddress() {
 
     
   const nameCheck = ()=>{
+    let spaceCheck = shippingName
     const validateName=()=>{
-      if(String(shippingName).match(/^[a-zA-Z\-]+$/))
+      if(String(spaceCheck.split(/\s/).join('')).match(/^[a-zA-Z\-]+$/))
         return true
       else
         return false
@@ -178,8 +179,9 @@ function ShippingAddress() {
             phone:shippingPhone,
             shippingEmail: shippingEmail
         }
-        if(!errorContainer){
-        const update = await axios.put("http://localhost:8000/auth/shipping/" + user._id, {shippingAddress})
+        if(!errorContainer()){
+          console.log(shippingAddress);
+          const update = await axios.put("http://localhost:8000/auth/shipping/" + user._id, {shippingAddress})
         if(update.status === 200){
             dispatch({ type: "UPDATE_ADDRESS", payload: shippingAddress });
             navigate('/payment')
@@ -187,7 +189,7 @@ function ShippingAddress() {
         else{
             setServerError("Something went wrong")
         }
-    }           
+    }       
 }
 
     return (

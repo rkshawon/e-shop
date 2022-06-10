@@ -7,6 +7,7 @@ import {v4} from 'uuid'
 import Modal from '../modal/Modal'
 import { BasketContext } from '../../../context/shooping/BasketContext'
 import { Context } from '../../../context/shooping/Context'
+import LoadingCircle from '../loading/LoadingCircle'
 
 
 
@@ -15,6 +16,7 @@ function Citems({desScroll}) {
   const {basket, dispatchB} = useContext(BasketContext)
   const [openModal, setOpenModal] = useState(false)
   const [product, setProduct] = useState()
+  const [processing, setProcessing] = useState(true)
   const {user} = useContext(Context)
   const dscrlRef = useRef()
   
@@ -46,6 +48,7 @@ function Citems({desScroll}) {
         const items = await axios.get('http://localhost:8000/product/allproduct')
         //console.log(items.data);
         setProducts(items.data)
+        setProcessing(false)
       }catch(err){
         
       }
@@ -65,7 +68,7 @@ function Citems({desScroll}) {
       }
         <div className="itemWrapper2">
         <h2>Best Selling Desktops</h2>
-        {
+        {  !processing?
           products && products.map((product, index)=>{
             if(product.category === 'Desktop')
               return <div key ={v4()} className="item2">
@@ -101,6 +104,8 @@ function Citems({desScroll}) {
             else
               return undefined
           })
+          :
+          <LoadingCircle/>
         }
         </div>
       </div>

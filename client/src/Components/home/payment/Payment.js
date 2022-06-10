@@ -1,12 +1,13 @@
 import "./payment.css"
 import { NavLink } from "react-router-dom";
 import { useStripe, useElements, CardElement} from "@stripe/react-stripe-js"
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { Context } from "../../../context/shooping/Context";
 import axios from "axios";
 import 'react-toastify/dist/ReactToastify.css';
 import { BasketContext } from "../../../context/shooping/BasketContext";
 import {FiEdit} from 'react-icons/fi'
+import LoadingCircle from "../loading/LoadingCircle";
 
 
 function Payment() {
@@ -14,18 +15,26 @@ function Payment() {
   const {basket, dispatchB} = useContext(BasketContext)
   const stripe = useStripe()
   const elements = useElements()
-  const [shippingAddress, setShippingAddress] = useState(false)
   const [processing, setProcessing] = useState(false)
   const [paySuccess, setPaySuccess] = useState(false)
   const [payFailed, setPayFailed] = useState(false)
+  const [shippingInfo, setShippinginfo] = useState(false)
 
   const totalPrice = ()=>{
-    
     let totalSum = 0
     basket?.forEach(b => { totalSum = totalSum + (b.price * b.quantity)})
     return totalSum
   }
-  
+  useEffect(()=>{
+    if( user?.shippingAddress?.ownerName || 
+      user?.shippingAddress?.address || 
+      user?.shippingAddress?.city || 
+      user?.shippingAddress?.zipCode || 
+      user?.shippingAddress?.phone || 
+      user?.shippingAddress?.shippingEmail ){
+        setShippinginfo(true)
+      }
+  },[])
   const removeItemsfromCard = ()=>{
     try{
       basket.forEach( async (b)=>{
@@ -107,7 +116,7 @@ function Payment() {
     <div className="payment_container">
       <div className="payment_left">
       <div className="shipping_address_container">
-      { !shippingAddress?
+      { shippingInfo?
           <div className="address_container">
           <h2>Shipping Address</h2>
           <h3 className="shipping_name">Name: {user?.shippingAddress?.ownerName}</h3>
@@ -157,11 +166,7 @@ function Payment() {
         <div className="checkout_container">
         {
           processing?
-          <div className="loading_circle">
-            <div className="outer_circle">
-              <div className="inner_circle"></div>
-            </div>
-          </div>
+            <LoadingCircle loadingColor= 'orange'/>
           :
           <button className="pay_button" onClick={handlePayment}>
             Place your order

@@ -55,4 +55,13 @@ const getsingleproduct = async (req, res)=>{
         res.status(500).json(err)
     }
 }
-module.exports = { singleproduct, allproduct, updaterating, pushidinrating, getsingleproduct}
+const searchproduct = async (req, res)=>{
+    try{
+        let regex = new RegExp(req.query.name, 'i')
+        const data = await productModel.find({name: regex})
+        res.status(200).json(data)
+    }catch(err){
+        res.status(500).json(err)
+    }
+}
+module.exports = { singleproduct, allproduct, updaterating, pushidinrating, getsingleproduct, searchproduct}

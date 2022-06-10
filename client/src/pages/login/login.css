@@ -72,15 +72,16 @@
     border-bottom: 2px solid gray;
 }
 .sing_in span{
-    font-size: .8em;
+    font-size: 12px;
     margin-top: 5%;
 }
 .sing_in h5{
     margin-top: 3%;
 }
 .sing_in a{
-    color: blue;
+    color: #0066C0;
     text-decoration: none;
+    font-size: 12px;
 }
 .create_new_id h5{
     font-weight: 500;
