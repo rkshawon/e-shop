@@ -21,8 +21,18 @@ const singleproduct = async (req, res)=>{
 }
 const allproduct = async (req, res)=>{
     try{
-        const alldata = await productModel.find()
-        res.status(200).json(alldata)
+        if(req.params.id === "laptop"){
+            const alldata = await productModel.find({category: "Laptop"})
+            res.status(200).json(alldata)
+        }
+        if(req.params.id === "computer"){
+            const alldata = await productModel.find({category: "Desktop"})
+            res.status(200).json(alldata)
+        }
+        if(req.params.id === "mobile"){
+            const alldata = await productModel.find({category: "Mobile"})
+            res.status(200).json(alldata)
+        }
     }catch(err){
         res.status(500).json(err)
     }
@@ -64,4 +74,20 @@ const searchproduct = async (req, res)=>{
         res.status(500).json(err)
     }
 }
-module.exports = { singleproduct, allproduct, updaterating, pushidinrating, getsingleproduct, searchproduct}
+const adminproduct = async (req, res)=>{
+    try{
+        const data = await productModel.find({admin_id: req.params.id})
+        res.status(200).json(data)
+    }catch(err){
+        res.status(500).json(err)
+    }
+}
+module.exports = {
+    singleproduct,
+    allproduct,
+    updaterating,
+    pushidinrating,
+    getsingleproduct,
+    searchproduct,
+    adminproduct
+}

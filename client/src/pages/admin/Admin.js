@@ -232,7 +232,11 @@ function Admin() {
 				{selectedFile &&  <img src={preview} alt='img' /> }
 			</div>
 			<button className="submit_btn" onClick={submitProduct}>Submit</button>
+			<NavLink  to="/deleteprodduct" className="review_product_btn">
+				<small>Review your product</small>
+			</NavLink>
 		</div>
+		
         </div>
     )
 }

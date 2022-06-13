@@ -18,6 +18,7 @@ import Register from "./pages/register/Register";
 import { Elements} from "@stripe/react-stripe-js";
 import {loadStripe} from '@stripe/stripe-js'
 import ShippingAddress from "./Components/home/payment/address/ShippingAddress";
+import DeleteProduct from "./Components/home/deleteproduct/DeleteProduct";
 const stripePromise = loadStripe("pk_test_51KyZM6IP0ODYVACVqmX4DX6hxiHc10xeSIZmu92WFOLgKe4cF526wX66uWgSQk3d6s2sNrsDxqilHQmKYnD19JGi00BzXEw8kg")
 
 function App() {
@@ -27,6 +28,7 @@ function App() {
     <Routes>
       <Route path="/" element={[<Navbar/>,<Navbar2/>,<Home />, <Footer/>]} />
       <Route path="/search" element={[<Navbar/>,<Navbar2/>,<Search/>, <Footer/>]} />
+      <Route path="/deleteprodduct" element={[<Navbar/>,<Navbar2/>,<DeleteProduct/>, <Footer/>]} />
       <Route path="/payment"
         element={[
           <Navbar/>,<Navbar2/>,

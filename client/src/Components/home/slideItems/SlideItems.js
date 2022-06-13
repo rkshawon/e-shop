@@ -60,7 +60,7 @@ export default class SlideItems extends Component{
   componentDidMount() {
     this.setState({user: this.context.user})
 
-    axios.get('http://localhost:8000/product/allproduct')
+    axios.get('http://localhost:8000/product/allproduct/laptop')
     .then(res => {
       const products = res.data;
       this.setState ({products});

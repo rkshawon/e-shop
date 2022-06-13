@@ -7,24 +7,24 @@
     flex-direction: column;
 }
 .product_form{
-    height: 550px;
     width: 350px;
     display: flex;
     flex-direction: column;
     align-items: center;
     padding: 5px;
     box-shadow: 0px 0px 1px 0px rgba(0,0,0,0.75);
+    margin-bottom: 20px;
 }
 .product_form h2{
     width: 90%;
-    margin: 10px;
+    margin: 5px;
 }
 .product_form input{
     outline: none;
-    height: 30px;
+    height: 25px;
 }
 .p_price, .p_name,.p_category,.p_image{
-    height: 70px;
+    height: 60px;
     width: 90%;
     display: flex;
     flex-direction: column;
@@ -36,20 +36,34 @@
 .submit_btn{
     width: 90%;
     height: 35px;
-    margin: 10px;
     color: white;
     background-color: coral;
     border: none;
+}
+.review_product_btn{
+    width: 90%;
+    height: 30px;
+    background: linear-gradient(0deg, rgba(247,247,247,1) 71%, rgba(252,252,252,1) 100%);
+    border: .5px solid gray;
+    border-radius: 3px;
+    cursor: pointer;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: black;
 }
 .submit_btn:hover{
     cursor: pointer;
 }
 .product_form .image_container{
-    height: 130px;
-    width: 40%;
-    margin: 10px;
+    min-width: 80px;
+    height: 100px;
+    width: 30%;
     margin-right: 50%;
     background-color: rgb(250, 231, 231);
+    margin-top: 10px;
+   
 }
 
 .image_container img{
