@@ -55,7 +55,7 @@ function Citems({desScroll}) {
     }
     fetchProduct()
     desScroll(dscrlRef)
-  },[])
+  },[openModal])
 
   return (
       <div className="ItemContainer2" ref={dscrlRef}>

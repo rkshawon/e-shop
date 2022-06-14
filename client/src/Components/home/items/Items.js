@@ -47,7 +47,7 @@ function Items({scroll}) {
         setProducts(items.data)
         setProcessing(false)
       }catch(err){
-        
+        console.log(err);
       }
     }
     fetchProduct()

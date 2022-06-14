@@ -18,7 +18,6 @@ function Modal({open, close, productid, userid}) {
         const fetchProduct = async ()=>{
             try{
                 const items = await axios.get('http://localhost:8000/product/getsingleproduct/' + productid)
-                console.log('ok',items);
                 checkUser(items.data)
                 setProduct(items.data)
             }catch(err){

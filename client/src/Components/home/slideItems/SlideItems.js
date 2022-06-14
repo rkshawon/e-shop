@@ -67,6 +67,15 @@ export default class SlideItems extends Component{
     })
     this.props.slidescroll(this.slideScrlRef)
   }
+  componentDidUpdate(prevState) {
+    if (prevState.openModal !== this.state.openModal) {
+      axios.get('http://localhost:8000/product/allproduct/laptop')
+      .then(res => {
+        const products = res.data;
+        this.setState ({products});
+      })
+    }
+  }
 
   render() {
   var settings = {
