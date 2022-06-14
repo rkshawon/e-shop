@@ -30,7 +30,8 @@ tr{
     padding: 10px ;
 }
 .order_body td{
-    padding: 10px ;
+    padding: 2px;
+    border-bottom: 1px solid gainsboro;
 }
 th:first-child, td:first-child{
     text-align: left;

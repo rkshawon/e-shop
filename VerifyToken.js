@@ -8,7 +8,7 @@ module.exports = (req, res, next)=>{
             if(err){
                 return res.status(404).json("token is not valid")
             }
-            req.user = user.user
+            req.user = user.data;
             next()
         })
     }else{

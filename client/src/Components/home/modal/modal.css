@@ -67,6 +67,7 @@
     background-color: rgb(43, 40, 40);
 }
 .already_rated{
+    font-weight: bolder;
     position: absolute;
     left: 50%;
     top: 50%;

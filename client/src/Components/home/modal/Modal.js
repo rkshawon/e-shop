@@ -18,6 +18,7 @@ function Modal({open, close, productid, userid}) {
         const fetchProduct = async ()=>{
             try{
                 const items = await axios.get('http://localhost:8000/product/getsingleproduct/' + productid)
+                console.log('ok',items);
                 checkUser(items.data)
                 setProduct(items.data)
             }catch(err){
@@ -91,7 +92,7 @@ function Modal({open, close, productid, userid}) {
             </div>:
             <div className = 'already_rated' >Rate Successful</div>
             :
-            <div className='already_rated'>You already rated</div>
+            <div className='already_rated'><span>You already rated</span> </div>
             :
             <NavLink to="/login" style={{ color: 'inherit',  textDecoration: 'inherit'}}>
                 <button className='submit_rating_btn already_rated' onClick={sendRating}>Sing in</button>

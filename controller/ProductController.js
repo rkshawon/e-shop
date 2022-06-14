@@ -1,6 +1,7 @@
 const productModel = require('../model/Product')
 
 const singleproduct = async (req, res)=>{
+    
     const productData = new productModel({
         name: req.body.name,
         price: req.body.price,
@@ -8,15 +9,17 @@ const singleproduct = async (req, res)=>{
         images: req.body.images,
         admin_id: req.params.id
     })
-    try{
-        if(req.user._id === req.params.id || req.user.isAdmin){
+   
+    try{ 
+        if(req.user._id === req.params.id || req.user.isAdmin){            
             const pdata = await productData.save()
             res.status(200).json(pdata)   
         }else{
             res.status(403).json("You are not allow to upload product")
         }
     }catch(err){
-        res.status(500).json("err")
+        console.log("producterr",req.params.id , req.user);
+        res.status(500).json(" faking errerr")
     }
 }
 const allproduct = async (req, res)=>{
@@ -48,7 +51,7 @@ const updaterating = async (req, res)=>{
 const pushidinrating = async (req, res)=>{
     try{
         const data = productModel.findOneAndUpdate(
-            req.params.id,
+            {_id:req.params.id},
             {$addToSet: {user_id: req.body.userid}},
             { upsert: true }
         ).exec();

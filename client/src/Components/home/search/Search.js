@@ -6,16 +6,18 @@ import {v4} from 'uuid'
 import Modal from '../modal/Modal'
 import { useSearchParams } from "react-router-dom";
 import { BasketContext } from '../../../context/shooping/BasketContext'
+import LoadingCircle from '../loading/LoadingCircle'
 
 
 function Search() {
     const [searchResult, setSearchResult] = useState()
     const {basket, dispatchB} = useContext(BasketContext)
     const [openModal, setOpenModal] = useState(false)
+    const [processing, setProcessing] = useState(true)
     const [product, setProduct] = useState()
     const [searchParams] = useSearchParams({});
   
-    const addToCard = (id, name, price,image)=>{
+    const addToCard = (id, name, price, image)=>{
       let repeatecheck = true
       repeatecheck = basket.every( b => {
         if(b.id === id){
@@ -40,6 +42,7 @@ function Search() {
       const searchProduct = async ()=>{
         try{
           const items = searchParams &&  await axios.get('http://localhost:8000/product/searchproduct?'+searchParams)
+          setProcessing(false)
           setSearchResult(items.data)
         }catch(err){
           console.log(err);
@@ -60,7 +63,7 @@ function Search() {
           product = {product}/>
         }
           <div className="search_item_wrapper">
-          {
+          { !processing?
             searchResult && searchResult.map((result, index)=>{
                 return <div key ={v4()} className="search_item">
                 <div className="search_product_container">
@@ -93,6 +96,8 @@ function Search() {
                 </div>
               </div>
             })
+            :
+            <LoadingCircle/>
           }
           </div>
         </div>

@@ -1,14 +1,16 @@
-import './deleteproduct.css'
+import './reviewproduct.css'
 import {FaStar} from 'react-icons/fa'
 import {v4} from 'uuid'
 import { useContext, useEffect, useState } from 'react'
 import { Context } from '../../../context/shooping/Context'
 import axios from 'axios'
 import { NavLink } from 'react-router-dom'
+import LoadingCircle from '../loading/LoadingCircle'
 
-function DeleteProduct() {
-    const [searchResult, setSearchResult] = useState()
+function ReviewProduct() {
+    const [searchResult, setSearchResult] = useState('initial')
     const {user} = useContext(Context)
+    const [processing, setProcessing] = useState(true)
 
 
     useEffect(()=>{
@@ -16,6 +18,7 @@ function DeleteProduct() {
           try{
             const items = await axios.get('http://localhost:8000/product/adminproduct/'+user._id)
             setSearchResult(items.data)
+            setProcessing(false)
           }catch(err){
             console.log(err);
           }
@@ -26,7 +29,8 @@ function DeleteProduct() {
   return (
     <div className="admin_item_wrapper">
     {
-      searchResult ? searchResult.map((result, index)=>{
+      searchResult ?
+      !processing? searchResult.map((result, index)=>{
           return <div key ={v4()} className="admin_item">
           <div className="admin_product_container">
             <div className="admin_product_image_container">
@@ -54,6 +58,8 @@ function DeleteProduct() {
         </div>
       })
       :
+      <LoadingCircle/>
+      :
       <div className='empty_card'>
       <span> No Product</span>
       <NavLink to="/admin" style={{ color: 'inherit',  textDecoration: 'inherit'}}>
@@ -65,4 +71,4 @@ function DeleteProduct() {
   )
 }
 
-export default DeleteProduct
+export default ReviewProduct
