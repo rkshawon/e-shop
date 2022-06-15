@@ -43,6 +43,14 @@ td:nth-child(4){
     color: yellowgreen;
 }
 @media screen and (max-width: 480px) {
+    .order_table{
+        position: absolute;
+        top: 10%;
+        left: 50%;
+        transform: translate(-50%);
+        width: 95%;
+        border-collapse: collapse;
+    }
     .order_history_container h1{
         font-size: 24px;
         margin: 10px;

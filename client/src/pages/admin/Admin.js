@@ -77,9 +77,9 @@ function Admin() {
       setErrorMessageName("Only Characters A-Z, a-z and '-' are  acceptable.")
     }
     else{
-      if(productName.length > 80){
+      if(productName.length > 50){
         ename = true
-        setErrorMessageName("Name must be less than 80 characters")
+        setErrorMessageName("Name must be less than 50 characters")
       }
       else{
         ename = false
