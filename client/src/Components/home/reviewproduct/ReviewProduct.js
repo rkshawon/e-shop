@@ -8,7 +8,7 @@ import { NavLink } from 'react-router-dom'
 import LoadingCircle from '../loading/LoadingCircle'
 
 function ReviewProduct() {
-    const [searchResult, setSearchResult] = useState('initial')
+    const [searchResult, setSearchResult] = useState()
     const {user} = useContext(Context)
     const [processing, setProcessing] = useState(true)
 
@@ -29,7 +29,7 @@ function ReviewProduct() {
   return (
     <div className="admin_item_wrapper">
     {
-      searchResult ?
+      !searchResult ?
       !processing? searchResult.map((result, index)=>{
           return <div key ={v4()} className="admin_item">
           <div className="admin_product_container">
@@ -58,16 +58,16 @@ function ReviewProduct() {
         </div>
       })
       :
-      <LoadingCircle/>
+      <LoadingCircle loadingSize = 'vh'/>
       :
       <div className='empty_card'>
       <span> No Product</span>
       <NavLink to="/admin" style={{ color: 'inherit',  textDecoration: 'inherit'}}>
           <button className="shop_now">Submit</button>
       </NavLink> 
-  </div>
-    }
     </div>
+    }
+  </div>
   )
 }
 

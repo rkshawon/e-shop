@@ -1,5 +1,5 @@
 import './navbar.css'
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import {FiSearch} from 'react-icons/fi'
 import {FiShoppingCart} from 'react-icons/fi'
 import {RiAdminLine} from 'react-icons/ri'
@@ -17,11 +17,16 @@ function Navbar() {
     const {basket} = useContext(BasketContext)
     const [searchText, setSearchtext] = useState('')
     const [openMenu, setOpenMenu] = useState(false)
+    const navigate = useNavigate()
 
     const logOut = ()=>{
         dispatch({type: "LOGOUT"})
       }
-
+      const search = (e) => {
+        if (e.key === "Enter") {
+            searchText && navigate(`/search?name=${searchText}`)
+        }
+    }
   return (
       <header className='headerContainer'>
       {
@@ -40,7 +45,7 @@ function Navbar() {
         </NavLink>
          
             <div className="search">
-                <input type="text" onChange={(e)=>setSearchtext(e.target.value)}/>
+                <input type="text" onChange={(e)=>setSearchtext(e.target.value)} onKeyPress={search}/>
                 <NavLink to={searchText && `/search?name=${searchText}`}
                 className='searchicon'
                 style={{ color: 'inherit', textDecoration: 'inherit'}}>

@@ -1,7 +1,13 @@
 .loading_circle{
-    height: 100px;
-    width: 90%;
-    margin: 15px 0px 5px 0;
+    height: 45px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.loading_circleB{
+    height: calc( 100vh - 150px );
+    width: 100%;
     display: flex;
     align-items: center;
     justify-content: center;

@@ -7,6 +7,7 @@ import Modal from '../modal/Modal'
 import { useSearchParams } from "react-router-dom";
 import { BasketContext } from '../../../context/shooping/BasketContext'
 import LoadingCircle from '../loading/LoadingCircle'
+import { Context } from '../../../context/shooping/Context'
 
 
 function Search() {
@@ -15,6 +16,7 @@ function Search() {
     const [openModal, setOpenModal] = useState(false)
     const [processing, setProcessing] = useState(true)
     const [product, setProduct] = useState()
+    const {user} = useContext(Context)
     const [searchParams] = useSearchParams({});
   
     const addToCard = (id, name, price, image)=>{
@@ -50,21 +52,23 @@ function Search() {
 
       }
       searchProduct()
-    },[searchParams])
-  
+    },[searchParams, openModal])
     return (
-        <>
-        {searchResult?.length > 0 ? <h1>RESULTS:</h1> : <h2>No Product found</h2>}
         <div className="search_container">
         {
           openModal && <Modal 
           open = {openModal}
           close = {()=>setOpenModal(false)}
-          product = {product}/>
+          productid = {product._id}
+          userid = {user?._id}/>
         }
+        { !processing?
+          searchResult.length>0 ?
+          <div className='search_result_item_container'>
+          <h1 className='search_result_title'>RESULTS:</h1>
           <div className="search_item_wrapper">
-          { !processing?
-            searchResult && searchResult.map((result, index)=>{
+         
+            {searchResult.map((result, index)=>{
                 return <div key ={v4()} className="search_item">
                 <div className="search_product_container">
                   <div className="search_product_image_container">
@@ -96,12 +100,15 @@ function Search() {
                 </div>
               </div>
             })
-            :
-            <LoadingCircle/>
           }
           </div>
         </div>
-        </>
+            :
+            <h2 className='empty_card'>No Product found</h2>
+            :
+            <LoadingCircle/>
+          }
+        </div>
     )
 }
 
