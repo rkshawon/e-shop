@@ -162,27 +162,27 @@ function Register() {
         <div className="singup_name">
           <label htmlFor="name">Your name</label>
           <input type="text" id="name" className="name_field" ref = {name}
-          onClick= {()=>setErrorMessageName('')}/>
+          onClick= {()=>{setErrorMessageName(''); setServerError('')}}/>
           <small >{errorMessageName}</small>
         </div>
         <div className="singup_email">
           <label htmlFor="email">Email</label>
           <input type="text" id="email" className="email_field" ref = {email}
-          onClick= {()=>setErrorMessageEmail('')}/>
+          onClick= {()=>{setErrorMessageEmail(''); setServerError('')}}/>
           <small >{errorMessageEmail}</small>
         </div>
         <div className="singup_password">
           <label htmlFor="password">Password</label>
           <input type="text" id="password" placeholder='At least 6 characters'
             className="password_field" ref = {password}
-            onClick= {()=>setErrorMessagePass('')}/>
+            onClick= {()=>{setErrorMessagePass(''); setServerError('')}}/>
           <small >{errorMessagePass}</small>
         </div>
         <div className="singup_confirm_password">
           <label htmlFor="confirm_password">Re-enter password</label>
           <input type="text" id="confirm_password"
             className="confirm_password_field" ref = {confirmPassword}
-            onClick= {()=>setErrorMessagePass2('')}/>
+            onClick= {()=>{setErrorMessagePass2(''); setServerError('')}}/>
           <small >{errorMessagePass2}</small>
         </div>
         <div className="isAdmin">

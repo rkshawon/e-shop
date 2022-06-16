@@ -99,11 +99,11 @@ function Login() {
       <h2>Sing-In</h2>
       <label>Email</label>
       <input type = 'text' className="sing_in_field"
-      ref = {email} onClick= {()=>setErrorMessageEmail('')}/>
+      ref = {email} onClick= {()=>{setErrorMessageEmail(''); setServerError('')}}/>
       <small >{errorMessageEmail}</small>
       <label>Password</label>
       <input type = "password" className="sing_in_field"
-      ref = {password} onClick= {()=>setErrorMessagePass('')}/>
+      ref = {password} onClick= {()=>{setErrorMessagePass(''); setServerError('')}}/>
       <small >{errorMessagePass}</small>
       <div className="sing_in_btn" onClick={handleLoginClick}><button>Continue</button></div>
       <span>
