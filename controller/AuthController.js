@@ -37,12 +37,11 @@ const logIn = async (req, res) =>{
         if(!validPassword)
             res.status(400).json("wrong password")
         else{
-            const accessToken = jwt.sign({data}, process.env.ACCESS_TOKEN, {expiresIn: '30s'})
+            const accessToken = jwt.sign({data}, process.env.ACCESS_TOKEN, {expiresIn: '10m'})
             const refreshToken = jwt.sign({data}, process.env.REFRESH_TOKEN);
             const findtoken = await Token.find({user: user._id})
             
-            if(findtoken.length<2){
-                console.log(findtoken.length);
+            if(findtoken.length<1){
                 const refreshTokenModel = new Token({
                     user: user._id,
                     token: refreshToken
