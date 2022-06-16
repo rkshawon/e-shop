@@ -65,7 +65,7 @@ h2{
     width: 20px;
     color: gray;
 }
-.star_rating:hover{
+.star_rating{
     cursor: pointer;
 }
 .addto_card{

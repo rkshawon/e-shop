@@ -67,7 +67,7 @@ export default class SlideItems extends Component{
     })
     this.props.slidescroll(this.slideScrlRef)
   }
-  componentDidUpdate(prevState) {
+  componentDidUpdate(prevProps, prevState) {
     if (prevState.openModal !== this.state.openModal) {
       axios.get('http://localhost:8000/product/allproduct/laptop')
       .then(res => {
