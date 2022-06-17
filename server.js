@@ -7,6 +7,7 @@ const cors = require("cors")
 const authRouter = require('./router/Auth')
 const productRouter = require('./router/Product')
 const orderRouter = require('./router/Order')
+const path = require("path")
 
 
 app.use(cors())
