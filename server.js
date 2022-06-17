@@ -24,6 +24,12 @@ app.use('/auth', authRouter)
 app.use('/product', productRouter)
 app.use('/order', orderRouter)
 
+const ___dirname1 = path.resolve()
+app.use(express.static(path.join(___dirname1, "/client/build")))
+app.get("*", (req, res)=>{
+    res.sendFile(path.resolve(___dirname1, "client", "build", "index.html"))
+})
+
 app.listen(process.env.PORT || 8000, ()=>{
     console.log("server is runnig at port 8000");
 })
