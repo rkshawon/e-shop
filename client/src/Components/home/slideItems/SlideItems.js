@@ -60,7 +60,7 @@ export default class SlideItems extends Component{
   componentDidMount() {
     this.setState({user: this.context.user})
 
-    axios.get('http://localhost:8000/product/allproduct/laptop')
+    axios.get('/product/allproduct/laptop')
     .then(res => {
       const products = res.data;
       this.setState ({products});
@@ -69,7 +69,7 @@ export default class SlideItems extends Component{
   }
   componentDidUpdate(prevProps, prevState) {
     if (prevState.openModal !== this.state.openModal) {
-      axios.get('http://localhost:8000/product/allproduct/laptop')
+      axios.get('/product/allproduct/laptop')
       .then(res => {
         const products = res.data;
         this.setState ({products});

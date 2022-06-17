@@ -45,7 +45,7 @@ function Citems({desScroll}) {
   useEffect(()=>{
     const fetchProduct = async ()=>{
       try{
-        const items = await axios.get('http://localhost:8000/product/allproduct/computer')
+        const items = await axios.get('/product/allproduct/computer')
         //console.log(items.data);
         setProducts(items.data)
         setProcessing(false)

@@ -43,7 +43,7 @@ function Search() {
     useEffect(()=>{
       const searchProduct = async ()=>{
         try{
-          const items = searchParams &&  await axios.get('http://localhost:8000/product/searchproduct?'+searchParams)
+          const items = searchParams &&  await axios.get('/product/searchproduct?'+searchParams)
           setProcessing(false)
           setSearchResult(items.data)
         }catch(err){

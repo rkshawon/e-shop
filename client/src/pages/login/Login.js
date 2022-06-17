@@ -76,7 +76,7 @@ function Login() {
     dispatch({ type: "LOGIN_START" });
     try {
       if(!errorContainer()){
-      const res = await axios.post("http://localhost:8000/auth/login", {
+      const res = await axios.post("/auth/login", {
         email: email.current.value,
         password: password.current.value,
       });

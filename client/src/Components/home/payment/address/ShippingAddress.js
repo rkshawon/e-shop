@@ -3,7 +3,6 @@ import { NavLink, useNavigate  } from "react-router-dom";
 import amazoneLogo from './Amazon logo.png';
 import { useContext, useEffect, useState } from 'react';
 import axios from 'axios';
-import jwt_decode from "jwt-decode";
 import { Context } from '../../../../context/shooping/Context';
 
 function ShippingAddress() {
@@ -181,7 +180,7 @@ function ShippingAddress() {
         }
         if(!errorContainer()){
           console.log(shippingAddress);
-          const update = await axios.put("http://localhost:8000/auth/shipping/" + user._id, {shippingAddress})
+          const update = await axios.put("/auth/shipping/" + user._id, {shippingAddress})
         if(update.status === 200){
             dispatch({ type: "UPDATE_ADDRESS", payload: shippingAddress });
             navigate('/payment')

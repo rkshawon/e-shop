@@ -36,7 +36,7 @@ function Admin() {
 
 	const refreshToken = async () => {
 		try {
-		  const res = await axios.post("http://localhost:8000/auth/refreshtoken", { refreshToken: user.refreshToken });
+		  const res = await axios.post("/auth/refreshtoken", { refreshToken: user.refreshToken });
 		  dispatch({ type: "UPDATE_TOKEN", payload: {
 			accessToken: res.data.accessToken,
 			refreshToken: res.data.refreshToken
@@ -166,7 +166,7 @@ function Admin() {
 					category: category,
 					images: url
 				}
-				axiosJWT.post('http://localhost:8000/product/singleproduct/' + user._id, productData,
+				axiosJWT.post('/product/singleproduct/' + user._id, productData,
 				{
 					headers: {
 					  'authToken': `Bearer ${user.accessToken}`

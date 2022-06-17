@@ -17,7 +17,7 @@ function Modal({open, close, productid, userid}) {
     useEffect(()=>{
         const fetchProduct = async ()=>{
             try{
-                const items = await axios.get('http://localhost:8000/product/getsingleproduct/' + productid)
+                const items = await axios.get('/product/getsingleproduct/' + productid)
                 checkUser(items.data)
                 setProduct(items.data)
             }catch(err){
@@ -45,8 +45,8 @@ function Modal({open, close, productid, userid}) {
             }
         }
         try{
-            await axios.put('http://localhost:8000/product/updaterating/'+product._id, ratings)
-            await axios.put('http://localhost:8000/product/pushidinrating/'+product._id, {userid: userid})
+            await axios.put('/product/updaterating/'+product._id, ratings)
+            await axios.put('/product/pushidinrating/'+product._id, {userid: userid})
             setRateSuccess(true)
         }catch(err){
             console.log(err);

@@ -140,8 +140,8 @@ function Register() {
     formValidation()
     if(!errorContainer()){
       try{
-        const reg = await axios.post('http://localhost:8000/auth/register', userInfo)
-        await axios.post("http://localhost:8000/order/orders",{ user_id: reg.data._id })
+        const reg = await axios.post('/auth/register', userInfo)
+        await axios.post("/order/orders",{ user_id: reg.data._id })
         reg && navigate('/login')
       }catch(err){
         setServerError("Something went wrong");

@@ -16,7 +16,7 @@ function ReviewProduct() {
     useEffect(()=>{
         const adminProduct = async ()=>{
           try{
-            const items = await axios.get('http://localhost:8000/product/adminproduct/'+user._id)
+            const items = await axios.get('/product/adminproduct/'+user._id)
             setSearchResult(items.data)
             setProcessing(false)
           }catch(err){

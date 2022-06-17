@@ -38,7 +38,7 @@ function Payment() {
   const removeItemsfromCard = ()=>{
     try{
       basket.forEach( async (b)=>{
-        await axios.put("http://localhost:8000/order/orders/"+ user._id, {
+        await axios.put("/order/orders/"+ user._id, {
           orders:{
             name:b.name,
             price: b.price * b.quantity,
@@ -73,7 +73,7 @@ function Payment() {
       setProcessing(true)
       try {
         const response = await axios({
-          url: 'http://localhost:8000/auth/payment/' + user._id,
+          url: '/auth/payment/' + user._id,
           method: 'post',
           data: {
             id,
