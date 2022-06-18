@@ -21,11 +21,11 @@ function OrderHistory() {
     
   },[user?._id])
 
+  if(processing)
   if(user && orderHistory.length > 0)
   return (
     <div className="order_history_container">
       <h1>Your Orders</h1>
-    { !processing? 
       <div className="order_history">
         <table className="order_table">
           <thead className="order_header">
@@ -52,9 +52,6 @@ function OrderHistory() {
           </tbody>
         </table>
       </div>
-      :
-      <LoadingCircle/>
-      }
     </div>
   )
   else
@@ -66,6 +63,9 @@ function OrderHistory() {
     </NavLink>
     </div>
   )
+  else{
+    <LoadingCircle/>
+  }
 }
 
 export default OrderHistory
