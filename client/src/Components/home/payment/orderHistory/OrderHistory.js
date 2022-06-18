@@ -21,7 +21,7 @@ function OrderHistory() {
     
   },[user?._id])
 
-  if(processing)
+  if(!processing)
   if(user && orderHistory.length > 0)
   return (
     <div className="order_history_container">

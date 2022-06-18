@@ -27,10 +27,10 @@ tr{
     text-align: center;
 }
 .order_header th{
-    padding: 10px ;
+    padding: 5px ;
 }
 .order_body td{
-    padding: 2px;
+    padding: 5px 2px;
     border-bottom: 1px solid gainsboro;
 }
 th:first-child, td:first-child{
