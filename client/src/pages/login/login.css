@@ -14,7 +14,7 @@
 }
 .login_container{
     background-color: rgb(255, 255, 255);
-    height: 420px;
+    height: 400px;
     width: 350px;
     display: flex;
     flex-direction: column;
