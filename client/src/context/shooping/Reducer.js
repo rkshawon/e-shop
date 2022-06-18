@@ -53,11 +53,11 @@ const Reducer = (state, action)=>{
             qBasket.forEach((b)=>{
                 if(b.id === action.id){
                     if(action.quantityType === "plus"){
-                        b.quantity = b.quantity < 10 ? b.quantity + .5 : 10
+                        b.quantity = b.quantity < 10 ? b.quantity + 1 : 10
                     }
                         
                     if(action.quantityType === "minus")
-                        b.quantity = b.quantity > 1 ? b.quantity - .5 : 1             
+                        b.quantity = b.quantity > 1 ? b.quantity - 1 : 1             
                 }
             })
             return{

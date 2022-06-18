@@ -148,6 +148,7 @@
 .increase, .decrease{
     width: 28px;
     padding: 3px;
+    cursor: pointer;
 }
 @media screen and  (max-width: 53.1rem){
     .card_page_container{
