@@ -66,7 +66,7 @@ function Admin() {
   const nameCheck = ()=>{
 	let spaceCheck = productName
     const validateName=()=>{
-      if(String(spaceCheck.split(/\s/).join('')).match(/^[a-zA-Z\-]+$/))
+      if(String(spaceCheck.split(/\s/).join('')).match(/^[a-zA-Z0-9\-]+$/))
         return true
       else
         return false
