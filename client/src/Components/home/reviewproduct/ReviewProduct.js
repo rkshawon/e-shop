@@ -29,7 +29,7 @@ function ReviewProduct() {
   return (
     <div className="admin_item_wrapper">
     {
-      !searchResult ?
+      searchResult ?
       !processing? searchResult.map((result, index)=>{
           return <div key ={v4()} className="admin_item">
           <div className="admin_product_container">
