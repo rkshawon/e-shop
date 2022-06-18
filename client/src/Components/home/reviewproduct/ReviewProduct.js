@@ -29,8 +29,8 @@ function ReviewProduct() {
   return (
     <div className="admin_item_wrapper">
     {
-      searchResult ?
-      !processing? searchResult.map((result, index)=>{
+      !processing?
+      searchResult ? searchResult.map((result, index)=>{
           return <div key ={v4()} className="admin_item">
           <div className="admin_product_container">
             <div className="admin_product_image_container">
@@ -58,14 +58,14 @@ function ReviewProduct() {
         </div>
       })
       :
-      <LoadingCircle loadingSize = 'vh'/>
-      :
       <div className='empty_card'>
       <span> No Product</span>
       <NavLink to="/admin" style={{ color: 'inherit',  textDecoration: 'inherit'}}>
           <button className="shop_now">Submit</button>
       </NavLink> 
-    </div>
+      </div>
+      :
+      <LoadingCircle loadingSize = 'vh'/>
     }
   </div>
   )

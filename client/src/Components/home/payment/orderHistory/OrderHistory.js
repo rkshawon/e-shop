@@ -64,7 +64,7 @@ function OrderHistory() {
     </div>
   )
   else{
-    <LoadingCircle/>
+    return <LoadingCircle/>
   }
 }
 
