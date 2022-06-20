@@ -173,7 +173,6 @@
         flex-direction: column;
     }
     .card_page_right{
-       
         width: 80%;
         max-width: 300px;
         min-width: 150px;
@@ -184,5 +183,8 @@
     }
     .remove_from_card_btn{
         width: 170px;
+    }
+    .checkout_button{
+        height: 24%;
     }
 }
