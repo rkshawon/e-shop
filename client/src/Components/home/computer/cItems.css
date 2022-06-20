@@ -92,5 +92,9 @@
     .product_image_container2{
         height: 180px;
         width: 200px;
-    } 
+    }
+    .addto_card2{
+        bottom: 4px;
+        height: 28px;
+    }
 }

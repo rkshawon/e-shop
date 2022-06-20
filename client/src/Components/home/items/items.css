@@ -91,5 +91,9 @@ h2{
     }
     .product_image_container img{
         min-width: 250px;
+    }
+    .addto_card{
+        bottom: 0;
+        height: 28px;
     }  
 }

@@ -131,4 +131,8 @@ h1{
     .p_image_container img{
         height: 70%;
     }
+    .add_to_card{
+        bottom: 5px;
+        height: 28px;
+    }
 }
