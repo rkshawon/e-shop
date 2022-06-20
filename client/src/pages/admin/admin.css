@@ -21,7 +21,7 @@
 }
 .product_form input{
     outline: none;
-    height: 25px;
+    height: 30px;
 }
 .p_price, .p_name,.p_category,.p_image{
     height: 60px;

@@ -14,7 +14,6 @@
 }
 .login_container{
     background-color: rgb(255, 255, 255);
-    height: 400px;
     width: 350px;
     display: flex;
     flex-direction: column;
@@ -33,7 +32,7 @@
     font-weight: bold;
 }
 .sing_in_field{
-    height: 10%;
+    height: 45px;
     width: 100%;
     margin-top: 1%;
     outline-color: orange;
@@ -42,11 +41,12 @@
     box-shadow: 0 0 5px orange;
 }
 .sing_in_btn{
-    height: 12%;
+    height: 50px;
     width: 100%;
     margin-top: 5%;
 }
 .sing_in_btn button{
+    font-weight: bold;
     height: 100%;
     width: 100%;
     background: linear-gradient(0deg, rgba(254,208,108,1) 31%, rgba(245,219,165,1) 100%);
@@ -91,7 +91,7 @@
 }
 .new_account{
     width: 90%;
-    height: 20%;
+    height: 35px;
 }
 .new_account button{
     height: 100%;
@@ -109,7 +109,6 @@
 }
 @media screen and  (max-width: 380px){
     .login_container{
-        height: 50%;
         width: 90%;
     }
     .create_new_id{

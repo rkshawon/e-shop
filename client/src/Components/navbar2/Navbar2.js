@@ -10,7 +10,7 @@ function Navbar2() {
             <li>Today's Deals</li>
             <li>Service</li>
             <li>Registry</li>
-            <li>Gift Card</li>
+            <li>Gift</li>
             <li>Sell</li>
         </ul>
         

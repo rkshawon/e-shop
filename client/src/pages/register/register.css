@@ -14,7 +14,6 @@
 }
 .registration_login_container{
     background-color: rgb(255, 255, 255);
-    height: 80%;
     width: 30%;
     min-width: 350px;
     display: flex;
@@ -23,7 +22,6 @@
     box-shadow: 0px 0px 1px 0px rgba(0,0,0,0.75);
 }
 .sing_up{
-    height: 90%;
     width: 90%;
     margin: 5%;
     display: flex;
@@ -32,7 +30,6 @@
 
 .singup_name, .singup_email, .singup_password, .singup_confirm_password{
     width: 100%;
-    height: 13%;
     display: flex;
     flex-direction: column;
 }
@@ -40,14 +37,16 @@
     font-weight: bold;
 }
 .name_field, .email_field, .password_field, .confirm_password_field{
-    height: 40%;
+    margin-bottom: 10px;
+    height: 35px;
     width: 100%;
     outline-color: orange;
 }
 .sing_up_btn{
-    height: 6%;
+    height: 40px;
     width: 100%;
     margin-top: 5%;
+    font-weight: bold;
 }
 .sing_up_btn button:hover{
     cursor: pointer;

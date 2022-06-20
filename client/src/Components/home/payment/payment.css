@@ -1,13 +1,12 @@
 .payment_container{
     width: 100%;
     display: flex;
-    margin-left: 20px;
 }
 .payment_left{
     width: 70%;
     display: flex;
     flex-direction: column;
-    margin: 10px;
+    margin-left: 20px;
 }
 .credit_card_container{
     height: 50px;
@@ -55,7 +54,7 @@
     width: 30%; 
 }
 .checkout_container{
-    min-width: 200px;
+    min-width: 220px;
     width: 70%;
     background-color: white;
     display: flex;
@@ -169,14 +168,10 @@ h4{
         width: 100%;
     }
 }
-@media screen and  (max-width: 480px){
+@media screen and  (max-width: 400px){
     .payment_container{
         width: 100%;
         display: flex;
-        margin-left: 5px;
-    }
-    .payment_left{
-        width: 97%;
     }
     .payment_product_image{
         height: 120px;
@@ -190,3 +185,4 @@ h4{
         width: 95%;
     }
 }
+

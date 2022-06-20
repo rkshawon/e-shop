@@ -46,11 +46,12 @@
 }
 .submit_btn{
     width: 90%;
-    height: 35px;
+    height: 38px;
     margin: 10px;
     color: white;
     background-color: coral;
     border: none;
+    font-weight: bold;
 }
 .submit_btn:hover{
     cursor: pointer;

@@ -6,8 +6,7 @@
     align-items: center;
 }
 .ulContainer{
-    min-width: 400px;
-    width: 40%;
+    width: 100%;
     display: flex;
     align-items: center;
     list-style-type: none;
@@ -31,8 +30,11 @@
 .menuicon2:hover{
     cursor: pointer;
 }
-@media screen and (max-width: 320px){
+@media screen and (max-width: 480px){
     .ulContainer li:nth-child(3){
         display: none;
+    }
+    .ulContainer li{
+        font-size: calc(14px + (13 - 10) * (100vw - 768px) / (1440 - 768));
     }
 }
