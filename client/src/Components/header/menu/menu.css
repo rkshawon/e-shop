@@ -1,5 +1,5 @@
 .menu_container{
-    height: 100vh;
+    height: 100%;
     width: 100%;
     background-color: gray;
     position: fixed;
@@ -11,28 +11,30 @@
     display: flex;
     justify-content: space-between;
 }
-.close_btton{
+.menu_close_btton{
     font-size: 28px;
-    margin-top: .5rem;
+    margin-top: 3rem;
     margin-right: .5rem;
     height: 50px;
-    width: 50px;
+    width: 100px;
     background: transparent;
     border: none;
     color: white;
 }
-.close_btton:hover{
+.menu_close_btton:hover{
     cursor: pointer;
 }
 .menu_list{
     animation: menu .5s;
 }
 .menu_amazon_title{
+    height: 150px;
     display: flex;
     flex-direction: column;
     padding: .55rem .8rem;
     color: white;
     background-color: #082931;
+    justify-content: center;
     
 }
 .menu_amazon_title div{
@@ -93,9 +95,9 @@
     }
 }
 @media screen and (max-width: 480px) {
-    .close_btton{
+    .menu_close_btton{
         margin-top: 0.5rem;
         margin-right: 0.5rem;
-        font-size: 20px;
+        font-size: 24px;
     }
 }

@@ -70,7 +70,7 @@ function Menu({open, close}) {
 }
 </div>  
   <div onClick={close}>
-    <button className="close_btton" ><ImCross/></button>
+    <button className="menu_close_btton" ><ImCross/></button>
   </div>
 </div>
   )
