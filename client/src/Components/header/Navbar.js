@@ -12,7 +12,7 @@ import { useContext, useEffect, useRef, useState } from 'react';
 import { BasketContext } from '../../context/shooping/BasketContext';
 import Menu from './menu/Menu';
 
-function Navbar({scroll}) {
+function Navbar({scroll, scrollController}) {
     const {user, dispatch} = useContext(Context)
     const {basket} = useContext(BasketContext)
     const [searchText, setSearchtext] = useState('')
@@ -30,7 +30,8 @@ function Navbar({scroll}) {
     }
     useEffect(()=>{
         scroll(scrlRef)
-      },[])
+        scrollController(openMenu)
+      },[openMenu])
   return (
       <header className='headerContainer' ref = {scrlRef}>
       {

@@ -9,12 +9,12 @@ function Footer({scrTop}) {
 
   return (
     <div className='footer'>
-    <div class="back_to_top_btn"
+    <div className="back_to_top_btn"
     onClick={handleTopSection}>
     Back to top
     </div>
-<div class="footer-middle-container">
-    <div class="footer_section_1">
+<div className="footer-middle-container">
+    <div className="footer_section_1">
         <h3>Get to Know Us</h3>
         <span>Careers</span>
         <span>Blog</span>
@@ -24,7 +24,7 @@ function Footer({scrTop}) {
         <span>Amazon Science</span>
     </div>
 
-    <div class="footer_section_2">
+    <div className="footer_section_2">
         <h3>Make Money with Us</h3>
             <span>Sell products on Amazon</span>
             <span>Sell on Amazon Business</span>
@@ -35,14 +35,14 @@ function Footer({scrTop}) {
             <span>Host an Amazon Hub</span>
             <span>›See More Make Money with Us</span> 
       </div>
-      <div class="footer_section_3">
+      <div className="footer_section_3">
         <h3>Amazon Payment Products</h3>
           <span> Amazon Business Card</span> 
           <span> Shop with Points</span> 
           <span>Reload Your Balance</span>  
           <span> Amazon Currency Converter</span> 
         </div>
-      <div class="footer_section_4">
+      <div className="footer_section_4">
             <h3>Let Us Help You</h3>
               <span> Amazon and COVID-19</span> 
               <span> Your Account</span> 
@@ -54,8 +54,8 @@ function Footer({scrTop}) {
               <span>Help</span>
             </div>
       </div>
-      <div class="footer-middle-container-2">
-        <div class="footer_section_5">
+      <div className="footer-middle-container-2">
+        <div className="footer_section_5">
                 <span>Amazon.com</span>
                 <span>Your Lists</span>
                 <span>Find a Gift</span>
@@ -64,7 +64,7 @@ function Footer({scrTop}) {
                 <span>Customer Service</span>
           </div>
 
-            <div class="footer_section_6">
+            <div className="footer_section_6">
                     <span>Your Oders</span>
                     <span>Gift Cards & Registry</span>
                     <span>Your Account</span>

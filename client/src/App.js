@@ -20,20 +20,39 @@ import {loadStripe} from '@stripe/stripe-js'
 import ShippingAddress from "./Components/home/payment/address/ShippingAddress";
 import ReviewProduct from "./Components/home/reviewproduct/ReviewProduct";
 import { useState } from "react";
+import { useEffect } from "react";
 const stripePromise = loadStripe("pk_test_51KyZM6IP0ODYVACVqmX4DX6hxiHc10xeSIZmu92WFOLgKe4cF526wX66uWgSQk3d6s2sNrsDxqilHQmKYnD19JGi00BzXEw8kg")
 
 function App() {
   const [scrTop, setScrTop] = useState()
+  const [scrController, setScrController] = useState()
+
   function scroll(scrl) {
     setScrTop(scrl)
-}
-console.log(scrTop, scroll);
+  }
+  function scrollController(scrcontroller) {
+    setScrController(scrcontroller)
+  }
+
   return (
     <BrowserRouter>
     <Routes>
-      <Route path="/" element={[<Navbar scroll={scroll}/>,<Navbar2/>,<Home />, <Footer scrTop={scrTop}/>]} />
-      <Route path="/search" element={[<Navbar scroll={scroll}/>,<Navbar2/>,<Search/>, <Footer scrTop={scrTop}/>]} />
-      <Route path="/deleteprodduct" element={[<Navbar scroll={scroll}/>,<Navbar2/>,<ReviewProduct/>, <Footer scrTop={scrTop}/>]} />
+      <Route path="/"
+      element={[<Navbar scroll={scroll}
+        scrollController= {scrollController}/>
+        ,<Navbar2/>,<Home />,
+        <Footer scrTop={scrTop}/>]}
+      />
+      <Route path="/search"
+        element={[<Navbar scroll={scroll} scrollController= {scrollController}/>,
+        <Navbar2/>,<Search/>,
+        <Footer scrTop={scrTop}/>]}
+      />
+      <Route path="/deleteprodduct"
+        element={[<Navbar scroll={scroll} scrollController= {scrollController}/>,
+        <Navbar2/>,<ReviewProduct/>,
+        <Footer scrTop={scrTop}/>]}
+       />
       <Route path="/payment"
         element={[
           <Navbar scroll={scroll}/>,<Navbar2/>,
@@ -46,8 +65,15 @@ console.log(scrTop, scroll);
       <Route path="/login" element={<Login/>} />
       <Route path="/admin" element={<Admin/>} />
       <Route path="/shipping" element={<ShippingAddress/>} />
-      <Route path="/cart" element={[<Navbar scroll={scroll}/>,<Navbar2/>,<Cart/>, <Footer scrTop={scrTop}/>]} />
-      <Route path="/orderhistory" element={[<Navbar scroll={scroll}/>,<Navbar2/>,<OrderHistory/>]} />
+      <Route path="/cart"
+        element={[<Navbar scroll={scroll} scrollController= {scrollController}/>,
+        <Navbar2/>,<Cart/>,
+        <Footer scrTop={scrTop}/>]}
+      />
+      <Route path="/orderhistory"
+        element={[<Navbar scroll={scroll} scrollController= {scrollController}/>,
+        <Navbar2/>,<OrderHistory/>]}
+      />
     </Routes>
   </BrowserRouter>
   );
