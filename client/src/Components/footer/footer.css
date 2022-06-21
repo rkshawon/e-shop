@@ -1,5 +1,4 @@
 .footer{
-    height: 50px;
     width: 100%;
     background-color: #131A22;
     color: white;
@@ -8,11 +7,21 @@
 }
 .footerItemContainer{
     display: flex;
-    height: 50px;
-    width: 50%;
+    min-height: 80px;
     align-items: center;
     justify-content: space-evenly;
 }
-.footerItemContainer h5{
-    font-weight: 400;
+.footerItemContainer span{
+ font-size: 12px;
+ margin-left: .5em;
+}
+@media screen and  (max-width: 53.1rem){
+    .footerItemContainer{
+        flex-direction: column;
+    }
+}
+@media screen and  (max-width: 30rem){
+    .footerItemContainer span{
+        font-size: .6rem;
+       }
 }
