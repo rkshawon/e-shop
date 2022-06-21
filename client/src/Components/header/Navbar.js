@@ -35,14 +35,16 @@ function Navbar() {
         close = {()=>setOpenMenu(false)}/>
     }
         <div className = "leftheader">
-        <NavLink  to="/" style={{ color: 'inherit',  textDecoration: 'inherit'}}>
+        
             <div className="logo_container">
                 <div onClick={()=>setOpenMenu(true)}  className="menu">
                 <FiMenu className='menuicon'/>
             </div>
+            <NavLink  to="/" style={{ color: 'inherit',  textDecoration: 'inherit'}}>
                 <img src={amazonLogo} alt="amazon" />
+            </NavLink>
             </div>    
-        </NavLink>
+       
          
             <div className="search">
                 <input type="text" onChange={(e)=>setSearchtext(e.target.value)} onKeyPress={search}/>
