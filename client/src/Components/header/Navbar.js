@@ -8,16 +8,17 @@ import {FiMenu} from 'react-icons/fi'
 import {BiHistory} from 'react-icons/bi'
 import amazonLogo from './amazonlogo.png'
 import { Context } from '../../context/shooping/Context';
-import { useContext, useState } from 'react';
+import { useContext, useEffect, useRef, useState } from 'react';
 import { BasketContext } from '../../context/shooping/BasketContext';
 import Menu from './menu/Menu';
 
-function Navbar() {
+function Navbar({scroll}) {
     const {user, dispatch} = useContext(Context)
     const {basket} = useContext(BasketContext)
     const [searchText, setSearchtext] = useState('')
     const [openMenu, setOpenMenu] = useState(false)
     const navigate = useNavigate()
+    const scrlRef = useRef()
 
     const logOut = ()=>{
         dispatch({type: "LOGOUT"})
@@ -27,8 +28,11 @@ function Navbar() {
             searchText && navigate(`/search?name=${searchText}`)
         }
     }
+    useEffect(()=>{
+        scroll(scrlRef)
+      },[])
   return (
-      <header className='headerContainer'>
+      <header className='headerContainer' ref = {scrlRef}>
       {
         openMenu && <Menu 
         open = {openMenu}

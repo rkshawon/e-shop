@@ -19,30 +19,35 @@ import { Elements} from "@stripe/react-stripe-js";
 import {loadStripe} from '@stripe/stripe-js'
 import ShippingAddress from "./Components/home/payment/address/ShippingAddress";
 import ReviewProduct from "./Components/home/reviewproduct/ReviewProduct";
+import { useState } from "react";
 const stripePromise = loadStripe("pk_test_51KyZM6IP0ODYVACVqmX4DX6hxiHc10xeSIZmu92WFOLgKe4cF526wX66uWgSQk3d6s2sNrsDxqilHQmKYnD19JGi00BzXEw8kg")
 
 function App() {
-
+  const [scrTop, setScrTop] = useState()
+  function scroll(scrl) {
+    setScrTop(scrl)
+}
+console.log(scrTop, scroll);
   return (
     <BrowserRouter>
     <Routes>
-      <Route path="/" element={[<Navbar/>,<Navbar2/>,<Home />, <Footer/>]} />
-      <Route path="/search" element={[<Navbar/>,<Navbar2/>,<Search/>, <Footer/>]} />
-      <Route path="/deleteprodduct" element={[<Navbar/>,<Navbar2/>,<ReviewProduct/>, <Footer/>]} />
+      <Route path="/" element={[<Navbar scroll={scroll}/>,<Navbar2/>,<Home />, <Footer scrTop={scrTop}/>]} />
+      <Route path="/search" element={[<Navbar scroll={scroll}/>,<Navbar2/>,<Search/>, <Footer scrTop={scrTop}/>]} />
+      <Route path="/deleteprodduct" element={[<Navbar scroll={scroll}/>,<Navbar2/>,<ReviewProduct/>, <Footer scrTop={scrTop}/>]} />
       <Route path="/payment"
         element={[
-          <Navbar/>,<Navbar2/>,
+          <Navbar scroll={scroll}/>,<Navbar2/>,
             <Elements stripe={stripePromise}>
               <Payment/>
             </Elements>,
-          <Footer/>
+          <Footer scrTop={scrTop}/>
         ]} />
       <Route path="/register" element={<Register/>} />
       <Route path="/login" element={<Login/>} />
       <Route path="/admin" element={<Admin/>} />
       <Route path="/shipping" element={<ShippingAddress/>} />
-      <Route path="/cart" element={[<Navbar/>,<Navbar2/>,<Cart/>, <Footer/>]} />
-      <Route path="/orderhistory" element={[<Navbar/>,<Navbar2/>,<OrderHistory/>]} />
+      <Route path="/cart" element={[<Navbar scroll={scroll}/>,<Navbar2/>,<Cart/>, <Footer scrTop={scrTop}/>]} />
+      <Route path="/orderhistory" element={[<Navbar scroll={scroll}/>,<Navbar2/>,<OrderHistory/>]} />
     </Routes>
   </BrowserRouter>
   );

@@ -155,7 +155,7 @@
         flex-direction: column;
     }
     .card_page_left{
-        width: 100%;
+        width: 97%;
     }
     .card_page_right{
         margin-left: 0px;
@@ -163,6 +163,9 @@
     }
     .empty_card span{
         font-size: 2.5rem;
+    }
+    .remove_from_card_btn{
+        width: 180px;
     }
 }
 @media screen and (max-width: 480px) {
@@ -186,5 +189,8 @@
     }
     .checkout_button{
         height: 24%;
+    }
+    .remove_from_card_btn{
+        width: 200px;
     }
 }

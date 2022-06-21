@@ -3,25 +3,89 @@
     background-color: #131A22;
     color: white;
     display: flex;
+    flex-direction: column;
     justify-content: center;
 }
+.back_to_top_btn{
+    display: flex;
+    justify-content: center;
+    color: #ffff;
+    background-color:#37475a ;
+    padding: 14px;
+    font-size: 16px;
+    cursor: pointer;
+}
+.footer-middle-container{
+    display: flex;
+    justify-content: space-evenly;
+    background-color:#232F3E;
+    color: #ffff;
+
+}
+.footer-middle-container h3{
+    margin-bottom: 0;
+}
+.footer_section_1, .footer_section_2, .footer_section_3, .footer_section_4{
+    display: flex;
+    flex-direction: column;
+    margin:2em 0.5em 4em 0em;
+    
+}
+.footer_section_1 span, .footer_section_2 span, .footer_section_3 span, .footer_section_4 span{
+    padding-top:.5em;
+    
+} 
+
+.footer-middle-container-2{
+    display: none;
+}
+
 .footerItemContainer{
     display: flex;
     min-height: 80px;
     align-items: center;
-    justify-content: space-evenly;
+    justify-content: center;
 }
 .footerItemContainer span{
  font-size: 12px;
- margin-left: .5em;
+ margin-left: 1em;
 }
 @media screen and  (max-width: 53.1rem){
     .footerItemContainer{
         flex-direction: column;
     }
+    .footer-middle-container{
+        display: none;
+    }
+    .footer-middle-container-2{
+        display: flex;
+        justify-content: space-evenly;
+        background-color:#232F3E;
+        color: #ffff;
+        align-items: center;
+    }
+    .footer_section_5, .footer_section_6{
+        display: flex;
+        flex-direction: column;
+        margin:2em 0.5em 4em 0em;        
+    }
 }
 @media screen and  (max-width: 30rem){
     .footerItemContainer span{
         font-size: .6rem;
-       }
+    }
+    .footer-middle-container-2{
+        display: flex;
+        justify-content: space-evenly;
+        background-color:#232F3E;
+        color: #ffff;
+        align-items: center;
+    }
+    .footer_section_5, .footer_section_6{
+        display: flex;
+        flex-direction: column;
+        margin:2em 0.5em 4em 0em;
+        font-size: 12px;
+        
+    }
 }
