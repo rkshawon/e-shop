@@ -3,7 +3,7 @@ import { Context } from '../../../context/shooping/Context'
 import { NavLink } from "react-router-dom";
 import {RiAdminLine} from 'react-icons/ri'
 import {FiUser} from 'react-icons/fi'
-import {ImCross} from 'react-icons/im'
+import {MdOutlineClose} from 'react-icons/md'
 import {AiOutlineHome} from 'react-icons/ai'
 import {BiHistory, BiLogOut} from 'react-icons/bi'
 import './menu.css'
@@ -70,7 +70,7 @@ function Menu({open, close}) {
 }
 </div>  
   <div onClick={close}>
-    <button className="menu_close_btton" ><ImCross/></button>
+    <button className="menu_close_btton" ><MdOutlineClose/></button>
   </div>
 </div>
   )

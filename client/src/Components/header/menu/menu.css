@@ -1,7 +1,7 @@
 .menu_container{
     height: 100%;
     width: 100%;
-    background-color: gray;
+    background-color: rgba(3, 3, 3, 0.8);
     position: fixed;
     top: 50%;
     left: 50%;
@@ -11,7 +11,7 @@
     justify-content: space-between;
 }
 .menu_close_btton{
-    font-size: 28px;
+    font-size: 35px;
     margin-top: 2rem;
     margin-right: .5rem;
     height: 50px;
@@ -94,6 +94,6 @@
     .menu_close_btton{
         margin-top: 2rem;
         margin-right: 0.5rem;
-        font-size: 24px;
+        font-size: 28px;
     }
 }

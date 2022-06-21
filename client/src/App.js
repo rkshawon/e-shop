@@ -34,6 +34,16 @@ function App() {
     setScrController(scrcontroller)
   }
 
+  useEffect(()=>{
+    function setScrollValue (){
+      scrController ?
+        document.documentElement.style.setProperty("--over-flow", "hidden"):
+        document.documentElement.style.setProperty("--over-flow", "none")
+
+    }
+    setScrollValue()
+  },[scrController])
+
   return (
     <BrowserRouter>
     <Routes>
@@ -55,7 +65,7 @@ function App() {
        />
       <Route path="/payment"
         element={[
-          <Navbar scroll={scroll}/>,<Navbar2/>,
+          <Navbar scroll={scroll} scrollController= {scrollController}/>,<Navbar2/>,
             <Elements stripe={stripePromise}>
               <Payment/>
             </Elements>,
