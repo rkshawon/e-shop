@@ -45,9 +45,10 @@
 }
 .card_description{
     position: relative;
-    width: 100%;
+    width: 99%;
     height: 170px;
 }
+
 .cart_product_price{
     margin-top: 5px;
 }
@@ -130,9 +131,8 @@
 }
 .quantity_container{
     position: absolute;
-    bottom: 40px;
+    bottom: 42px;
     width: 96px;
-    height: 15%;
     display: flex;
     align-items: center;
     justify-content: space-between;

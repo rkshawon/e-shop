@@ -1,7 +1,7 @@
 .menu_container{
     height: 100%;
     width: 100%;
-    background-color: rgba(3, 3, 3, 0.8);
+    background-color: rgba(3, 3, 3, 0.9);
     position: fixed;
     top: 50%;
     left: 50%;
@@ -68,7 +68,7 @@
     width: 83%;
     background-color: white;
     color: black;
-    animation: menu .5s;
+    animation: menu 1s;
 }
 .menu_navbars{
     border-bottom: 3px rgb(206, 206, 206) solid;
