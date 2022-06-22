@@ -68,7 +68,7 @@
     width: 83%;
     background-color: white;
     color: black;
-    animation: menu 1s;
+    animation: menu .5s;
 }
 .menu_navbars{
     border-bottom: 3px rgb(206, 206, 206) solid;
