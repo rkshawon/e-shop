@@ -1,6 +1,6 @@
 import { useContext } from 'react'
 import { Context } from '../../../context/shooping/Context'
-import { NavLink } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
 import {RiAdminLine} from 'react-icons/ri'
 import {FiUser} from 'react-icons/fi'
 import {MdOutlineClose} from 'react-icons/md'
@@ -61,12 +61,12 @@ function Menu({open, close}) {
       <h5 className="menu_navbar_text">Sing Out</h5>
   </div>
 </NavLink> :
-<NavLink to="/login" style={{ color: 'inherit', textDecoration: 'inherit'}}>
+<Link to="/login" style={{ color: 'inherit', textDecoration: 'inherit'}}>
 <div className="menu_navbars">
   <BiLogOut className='menu_navbar_icon'/>
   <h5 className="menu_navbar_text">Sing in</h5>
 </div>
-</NavLink>
+</Link>
 }
 </div>  
   <div onClick={close}>
