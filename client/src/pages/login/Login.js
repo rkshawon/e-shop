@@ -95,17 +95,17 @@ function Login() {
       <img src={amazoneLogo} alt='amazon logo' />
     </NavLink>
     <div className="login_container">
-      <div className="sing_in">
+      <div className="asing_in">
       <h2>Sing-In</h2>
       <label>Email</label>
-      <input type = 'text' className="sing_in_field"
+      <input type = 'text' className="asing_in_field"
       ref = {email} onClick= {()=>{setErrorMessageEmail(''); setServerError('')}}/>
       <small >{errorMessageEmail}</small>
       <label>Password</label>
-      <input type = "password" className="sing_in_field"
+      <input type = "password" className="asing_in_field"
       ref = {password} onClick= {()=>{setErrorMessagePass(''); setServerError('')}}/>
       <small >{errorMessagePass}</small>
-      <div className="sing_in_btn" onClick={handleLoginClick}><button>Continue</button></div>
+      <div className="asing_in_btn" onClick={handleLoginClick}><button>Continue</button></div>
       <span>
         By continueing, you agree to Amazon's 
         <a href="https://www.amazon.com/gp/help/customer/display.html/ref=ap_signin_notification_condition_of_use?ie=UTF8&nodeId=508088"> Condition of Use </a>
