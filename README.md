@@ -23,6 +23,6 @@ User can search product and add them in the cart.
  * Payment-
    1. User have to be logged in to buy product.
    2. User address and card info has be to fill out before processing payment
-  * Admin-
+ * Admin-
    1. Admin can upload product and also view all his products
   
