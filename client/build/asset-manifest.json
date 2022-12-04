@@ -1,0 +1,26 @@
+{
+  "files": {
+    "main.css": "/static/css/main.027c7d61.css",
+    "main.js": "/static/js/main.d612fa6e.js",
+    "static/media/phone.jpg": "/static/media/phone.d7a1a6cdb92d38663251.jpg",
+    "static/media/image1.jpg": "/static/media/image1.51d70583586f6b27a865.jpg",
+    "static/media/image3.jpg": "/static/media/image3.a1bcb082f3d017e44539.jpg",
+    "static/media/image2.jpg": "/static/media/image2.ad9585fcf0a142380736.jpg",
+    "static/media/image5.jpg": "/static/media/image5.9b93b60fdb2cd373adb0.jpg",
+    "static/media/image4.jpg": "/static/media/image4.06157933f9269395a916.jpg",
+    "static/media/laptops.jpg": "/static/media/laptops.45a97bec7b5957600884.jpg",
+    "static/media/amazonlogo.png": "/static/media/amazonlogo.eb07a8ec41c25ae73527.png",
+    "static/media/computers.jpg": "/static/media/computers.6b484f94d3de6f741126.jpg",
+    "static/media/slick.svg": "/static/media/slick.2630a3e3eab21c607e21.svg",
+    "static/media/slick.eot": "/static/media/slick.a4e97f5a2a64f0ab1323.eot",
+    "static/media/slick.ttf": "/static/media/slick.c94f7671dcc99dce43e2.ttf",
+    "static/media/slick.woff": "/static/media/slick.295183786cd8a1389865.woff",
+    "index.html": "/index.html",
+    "main.027c7d61.css.map": "/static/css/main.027c7d61.css.map",
+    "main.d612fa6e.js.map": "/static/js/main.d612fa6e.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.027c7d61.css",
+    "static/js/main.d612fa6e.js"
+  ]
+}
