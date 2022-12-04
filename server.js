@@ -24,11 +24,11 @@ app.use("/auth", authRouter);
 app.use("/product", productRouter);
 app.use("/order", orderRouter);
 
-const ___dirname1 = path.resolve();
-app.use(express.static(path.join(___dirname1, "/client/build")));
+const ___dirname = path.resolve();
+app.use(express.static(path.join(___dirname, "/client/build")));
 app.get("*", (req, res) => {
   res.sendFile(
-    path.join(___dirname1, "./client/build/index.html"),
+    path.join(___dirname, "./client/build/index.html"),
     function (err) {
       res.status(500).send(err);
     }
