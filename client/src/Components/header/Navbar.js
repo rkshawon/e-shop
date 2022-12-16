@@ -100,7 +100,7 @@ function Navbar({ scroll, scrollController }) {
           >
             <div className="navbars">
               <FiUser className="navbar_icon" />
-              <h5 className="navbar_text">Sign in</h5>
+              <h5 className="navbar_text">jdhfg bui gu giwe ghi heiw g</h5>
             </div>
           </NavLink>
         )}
